@@ -27,7 +27,7 @@ export default class CertificateQueue {
           </td>
           <td class="px-4 py-3 font-semibold text-text-dark">${c.id}</td>
           <td class="px-4 py-3 font-medium text-text-dark">
-            <a href="#/admin/people/${c.recipientId}" class="hover:underline hover:text-pink-ruby transition-colors">${c.recipientName}</a>
+            <a href="/admin/people/${c.recipientId}" class="hover:underline hover:text-pink-ruby transition-colors">${c.recipientName}</a>
           </td>
           <td class="px-4 py-3 font-sans">${c.type}</td>
           <td class="px-4 py-3 text-text-light font-interface">${c.issueDate || "Awaiting Verification"}</td>
@@ -46,7 +46,7 @@ export default class CertificateQueue {
               </button>
             ` : ""}
             ${c.status === "Issued" ? `
-              <a href="#/verify?id=${c.id}" target="_blank" class="inline-flex items-center gap-0.5 text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline">
+              <a href="/verify?id=${c.id}" target="_blank" class="inline-flex items-center gap-0.5 text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline">
                 View Lookup &rarr;
               </a>
             ` : ""}

@@ -19,7 +19,7 @@ export default class UrgentActions {
             <h5 class="font-interface font-bold text-[13px] text-text-dark uppercase tracking-wide">Pending Certificate Verification</h5>
             <p class="text-[12.5px] text-text-muted font-sans">${pendingCerts.length} certificates are waiting for coordinator verification before publication.</p>
             <div class="flex gap-2.5 mt-2">
-              <a href="#/admin/certificates" class="font-sans font-bold text-[11px] text-pink-ruby hover:underline">Review Approvals Queue &rarr;</a>
+              <a href="/admin/certificates" class="font-sans font-bold text-[11px] text-pink-ruby hover:underline">Review Approvals Queue &rarr;</a>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@ export default class UrgentActions {
             </div>
             <p class="text-[12.5px] text-text-muted font-sans">"${inq.subject}" - from ${inq.name} (Priority: ${inq.priority})</p>
             <div class="flex gap-3 mt-2">
-              <a href="#/admin/inquiries" class="font-sans font-bold text-[11px] text-pink-ruby hover:underline">Respond Now</a>
+              <a href="/admin/inquiries" class="font-sans font-bold text-[11px] text-pink-ruby hover:underline">Respond Now</a>
               <button class="font-sans font-semibold text-[11px] text-text-light hover:text-text-dark resolve-inq-btn" data-id="${inq.id}">Dismiss</button>
             </div>
           </div>

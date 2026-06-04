@@ -3,9 +3,9 @@ import PersonProfile from '../components/admin/people/PersonProfile.js';
 
 export default class AdminPersonProfilePage {
   render() {
-    const hash = window.location.hash || "";
-    const parts = hash.split('/');
-    // Hash format: #/admin/people/peo-arjun-mehta
+    const path = window.location.pathname || "";
+    const parts = path.split('/');
+    // Path format: /admin/people/peo-arjun-mehta
     const personId = parts[3] ? parts[3].split('?')[0] : "";
     
     this.profileComponent = new PersonProfile(personId);

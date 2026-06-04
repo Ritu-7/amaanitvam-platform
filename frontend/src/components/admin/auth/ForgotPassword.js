@@ -21,7 +21,7 @@ export default class ForgotPassword {
         </form>
 
         <div class="pt-4 border-t border-stone-100 text-center text-[12px]">
-          <a href="#/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline">← Back to Login</a>
+          <a href="/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline">← Back to Login</a>
         </div>
       </div>
     `;
@@ -45,7 +45,7 @@ export default class ForgotPassword {
             <p class="text-[13.5px] text-text-muted leading-relaxed font-light">
               We have dispatched security verification instructions to <strong class="font-semibold text-text-dark">${email}</strong>.
             </p>
-            <a href="#/admin/reset-password" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline block pt-2">Proceed to Reset Password →</a>
+            <a href="/admin/reset-password" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline block pt-2">Proceed to Reset Password →</a>
           </div>
         `;
       });

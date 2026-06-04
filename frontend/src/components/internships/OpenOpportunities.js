@@ -40,11 +40,11 @@ export default class OpenOpportunities {
             </div>
 
             <!-- Action buttons -->
-            <div class="grid grid-cols-2 gap-3 pt-2">
-              <a href="#/internships/opportunity/${opp.slug}" class="text-center font-interface font-semibold text-[10px] uppercase tracking-widest px-3 py-2.5 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <a href="/internships/opportunity/${opp.slug}" class="text-center font-interface font-semibold text-[10px] uppercase tracking-widest px-3 py-2.5 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-ruby">
                 View Details
               </a>
-              <a href="#/internships/apply?opportunityId=${opp.id}" class="text-center font-interface font-semibold text-[10px] uppercase tracking-widest px-3 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow-sm transition-colors">
+              <a href="/internships/apply?opportunityId=${opp.id}" class="text-center font-interface font-semibold text-[10px] uppercase tracking-widest px-3 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-pink-ruby">
                 Apply Now
               </a>
             </div>

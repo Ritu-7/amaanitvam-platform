@@ -71,7 +71,7 @@ export default class ReportPublisher {
             </div>
 
             <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
-              <a href="#/admin/events" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-4 py-2.5 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
+              <a href="/admin/events" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-4 py-2.5 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
                 Cancel
               </a>
               <button type="submit" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
@@ -236,7 +236,7 @@ export default class ReportPublisher {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         alert('Success: Report has been compiled and published into the public Knowledge Archive.');
-        window.location.hash = '#/admin/events';
+        window.navigateSPA('/admin/events');
       });
     }
   }

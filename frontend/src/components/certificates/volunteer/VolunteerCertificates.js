@@ -11,41 +11,53 @@ export default class VolunteerCertificates {
         ? 'bg-emerald-50 text-emerald-800 border-emerald-200' 
         : 'bg-stone-50 text-stone-500 border-stone-200';
 
+      const verifyUrl = `https://amaanitvam.org/verify?code=${cert.verificationCode}`;
+
       return `
-        <div class="p-6 bg-stone-50 border border-stone-200 rounded hover:shadow-sm transition-all duration-300">
-          <div class="flex items-center justify-between gap-2 mb-4">
-            <span class="inline-block font-interface font-semibold text-[9px] uppercase tracking-widest px-2.5 py-0.5 border rounded-full ${statusBadge}">
-              ${cert.status}
-            </span>
-            <span class="font-sans text-[12px] text-text-light">
-              Issued: ${cert.issueDate}
-            </span>
-          </div>
-
-          <h4 class="font-display font-semibold text-[18px] text-text-dark leading-snug mb-3">
-            ${cert.type} Certificate - ${cert.program}
-          </h4>
-
-          <div class="space-y-2 font-sans text-[14px] text-text-muted mb-6">
-            <div class="flex justify-between py-1 border-b border-stone-200/40">
-              <span class="text-text-light text-[13px]">Certificate ID</span>
-              <span class="font-mono text-text-dark font-medium">${cert.certificateNumber}</span>
+        <div class="p-6 bg-stone-50 border border-stone-200/80 rounded-lg hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full space-y-6">
+          <div class="flex items-start justify-between gap-4">
+            <div class="space-y-1">
+              <span class="inline-block font-interface font-semibold text-[9px] uppercase tracking-widest px-2.5 py-0.5 border rounded-full ${statusBadge}">
+                ${cert.status}
+              </span>
+              <h4 class="font-display font-bold text-[18px] text-text-dark leading-snug pt-1.5">
+                ${cert.type} Certificate
+              </h4>
+              <p class="font-sans text-[13px] text-text-muted">
+                Program: <span class="font-medium text-text-dark">${cert.program}</span>
+              </p>
             </div>
-            <div class="flex justify-between py-1 border-b border-stone-200/40">
-              <span class="text-text-light text-[13px]">Verification Code</span>
-              <span class="font-mono text-text-dark font-medium">${cert.verificationCode}</span>
-            </div>
-            <div class="flex justify-between py-1">
-              <span class="text-text-light text-[13px]">Template Used</span>
-              <span class="text-text-dark font-medium">${cert.type} Template</span>
+            
+            <!-- QR Preview block -->
+            <div class="w-16 h-16 bg-white border border-stone-200 rounded p-1 flex items-center justify-center shrink-0 shadow-sm select-none" title="Verification QR Code">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=${encodeURIComponent(verifyUrl)}" alt="QR Code" class="w-full h-full object-contain">
             </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <button class="flex-1 text-center font-interface font-semibold text-[10px] uppercase tracking-widest py-2 rounded border border-pink-ruby text-pink-ruby hover:bg-pink-ruby hover:text-white transition-all duration-300 btn-view-cert-modal" data-cert-number="${cert.certificateNumber}">
+          <div class="border-t border-stone-200/60 pt-4 grid grid-cols-2 gap-x-4 gap-y-3 font-sans text-[12.5px] text-text-muted">
+            <div>
+              <span class="block text-text-light font-interface font-semibold text-[9px] uppercase tracking-wider mb-0.5">Issue Date</span>
+              <span class="font-medium text-text-dark">${cert.issueDate}</span>
+            </div>
+            <div>
+              <span class="block text-text-light font-interface font-semibold text-[9px] uppercase tracking-wider mb-0.5">Template Used</span>
+              <span class="font-medium text-text-dark">${cert.type} Template</span>
+            </div>
+            <div class="col-span-2">
+              <span class="block text-text-light font-interface font-semibold text-[9px] uppercase tracking-wider mb-0.5">Certificate ID</span>
+              <span class="font-mono text-text-dark font-semibold text-[13px]">${cert.certificateNumber}</span>
+            </div>
+            <div class="col-span-2">
+              <span class="block text-text-light font-interface font-semibold text-[9px] uppercase tracking-wider mb-0.5">Verification Code</span>
+              <span class="font-mono text-text-dark font-semibold text-[13px]">${cert.verificationCode}</span>
+            </div>
+          </div>
+
+          <div class="pt-2 flex items-center gap-3">
+            <button class="flex-grow text-center font-interface font-semibold text-[10px] uppercase tracking-widest py-2.5 rounded border border-pink-ruby text-pink-ruby hover:bg-pink-ruby hover:text-white transition-all duration-300 btn-view-cert-modal" data-cert-number="${cert.certificateNumber}">
               View Layout
             </button>
-            <button class="flex-1 text-center font-interface font-semibold text-[10px] uppercase tracking-widest py-2 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 transition-all duration-300 btn-download-cert-mock" data-cert-number="${cert.certificateNumber}">
+            <button class="flex-grow text-center font-interface font-semibold text-[10px] uppercase tracking-widest py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 transition-all duration-300 btn-download-cert-mock" data-cert-number="${cert.certificateNumber}">
               Download
             </button>
           </div>

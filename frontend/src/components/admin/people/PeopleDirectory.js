@@ -32,7 +32,7 @@ export default class PeopleDirectory {
             <input type="checkbox" class="people-row-select h-4 w-4 rounded border-stone-300 text-pink-ruby focus:ring-pink-ruby" data-id="${p.id}" ${isChecked} />
           </td>
           <td class="px-4 py-3 font-semibold text-text-dark font-sans">
-            <a href="#/admin/people/${p.id}" class="hover:text-pink-ruby hover:underline transition-colors">${p.name}</a>
+            <a href="/admin/people/${p.id}" class="hover:text-pink-ruby hover:underline transition-colors">${p.name}</a>
           </td>
           <td class="px-4 py-3">
             <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${typeBadge}">${p.type}</span>
@@ -44,7 +44,7 @@ export default class PeopleDirectory {
             <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${badgeColor}">${p.status}</span>
           </td>
           <td class="px-4 py-3 text-right">
-            <a href="#/admin/people/${p.id}" class="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline">
+            <a href="/admin/people/${p.id}" class="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline">
               360&deg; Profile &rarr;
             </a>
           </td>

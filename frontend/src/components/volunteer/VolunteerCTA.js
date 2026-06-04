@@ -19,10 +19,24 @@ export default class VolunteerCTA {
             <form id="apply-form" class="space-y-6">
               
               <!-- Success Banner -->
-              <div id="form-success-banner" class="hidden p-6 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded mb-6">
-                <h4 class="font-display font-semibold text-[18px] mb-2">Application Submitted Successfully!</h4>
-                <p class="font-sans text-[15px] leading-relaxed">
-                  Thank you for applying to Amaanitvam. We have recorded your parameters under the mock contract 'POST /api/volunteer/apply'. Our leadership team will review it and get back to you shortly.
+              <div id="form-success-banner" class="hidden p-8 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded mb-6 space-y-4">
+                <h4 class="font-display font-bold text-2xl text-emerald-950">Application Received</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-emerald-200 pt-4 text-sm font-sans">
+                  <div>
+                    <span class="block text-emerald-600 font-interface font-semibold text-[10px] uppercase tracking-wider">Reference ID</span>
+                    <span class="font-mono font-bold text-[16px] text-emerald-950 mt-1 block" id="receipt-ref-id">VOL-2026-XXXXX</span>
+                  </div>
+                  <div>
+                    <span class="block text-emerald-600 font-interface font-semibold text-[10px] uppercase tracking-wider">Status</span>
+                    <span class="font-bold text-[15px] text-emerald-950 mt-1 block">Under Review</span>
+                  </div>
+                  <div>
+                    <span class="block text-emerald-600 font-interface font-semibold text-[10px] uppercase tracking-wider">Expected Review Time</span>
+                    <span class="font-bold text-[15px] text-emerald-950 mt-1 block">5 Working Days</span>
+                  </div>
+                </div>
+                <p class="font-sans text-[14px] leading-relaxed text-emerald-800 pt-2 border-t border-emerald-200/50">
+                  Thank you for your application to the Amaanitvam Ecosystem. Your details have been submitted for review.
                 </p>
               </div>
 
@@ -129,6 +143,12 @@ export default class VolunteerCTA {
       // Output contract-ready payload to console.log representing POST request
       console.log("POST /api/volunteer/apply (Payload Contract Schema):", payload);
 
+      const refId = `VOL-2026-${Math.floor(10000 + Math.random() * 90000)}`;
+      const refIdEl = document.getElementById('receipt-ref-id');
+      if (refIdEl) {
+        refIdEl.textContent = refId;
+      }
+
       // Save application locally in sessionStorage to display in dashboard
       try {
         const storedApps = JSON.parse(sessionStorage.getItem('amaanitvam_my_applications') || '[]');
@@ -137,7 +157,7 @@ export default class VolunteerCTA {
           opportunityId: `opp-${payload.domain.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
           title: payload.domain,
           appliedDate: payload.appliedDate,
-          status: "Applied"
+          status: "Under Review"
         });
         sessionStorage.setItem('amaanitvam_my_applications', JSON.stringify(storedApps));
       } catch (err) {

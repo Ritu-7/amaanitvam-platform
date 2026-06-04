@@ -68,7 +68,7 @@ export default class DonationMethods {
 
             <div class="pt-3 border-t border-stone-150 flex items-center justify-between flex-wrap gap-4">
               <div class="text-[12px] text-text-light font-sans font-light">
-                Need details before contribution? <a href="#/contact" class="text-pink-ruby hover:underline font-semibold font-interface">Contact Alliances Team →</a>
+                Need details before contribution? <a href="/contact" class="text-pink-ruby hover:underline font-semibold font-interface">Contact Alliances Team →</a>
               </div>
               
               <button type="submit" class="font-interface font-bold text-[10px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">

@@ -171,7 +171,7 @@ export default class CertificateGenerator {
       });
 
       alert(`Successfully issued credential ${newRecord.certificateNumber} for ${newRecord.recipientName}.\nContract endpoint: POST /api/certificates`);
-      window.location.hash = '#/admin/certificates';
+      window.navigateSPA('/admin/certificates');
     });
   }
 }

@@ -9,8 +9,8 @@ export default class EventDetailsPage {
   }
 
   render() {
-    const hash = window.location.hash;
-    const parts = hash.split('/');
+    const path = window.location.pathname;
+    const parts = path.split('/');
     const slug = parts[parts.length - 1]; // E.g. community-learning-session
 
     const event = events.find(e => e.slug === slug);
@@ -22,7 +22,7 @@ export default class EventDetailsPage {
           <main class="flex-grow pt-32 text-center py-20">
             <h2 class="font-display font-semibold text-2xl text-stone-900 mb-2">Event Not Found</h2>
             <p class="font-sans text-text-muted mb-6">The requested upcoming campaign details are not available.</p>
-            <a href="#/events" class="font-interface font-semibold text-[11px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
+            <a href="/events" class="font-interface font-semibold text-[11px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
               Return to Events Board
             </a>
           </main>

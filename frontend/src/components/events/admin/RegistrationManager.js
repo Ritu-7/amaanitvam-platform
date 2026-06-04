@@ -45,7 +45,7 @@ export default class RegistrationManager {
             <h3 class="font-display font-semibold text-[20px] text-text-dark">Registrant Roster</h3>
             <p class="font-sans text-[13px] text-text-light mt-0.5">Manage signup registries separate from check-in attendance.</p>
           </div>
-          <a href="#/admin/events" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-4 py-2 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
+          <a href="/admin/events" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-4 py-2 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
             Close Roster
           </a>
         </div>

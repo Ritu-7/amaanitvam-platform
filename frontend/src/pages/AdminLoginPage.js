@@ -16,14 +16,14 @@ export default class AdminLoginPage {
   }
 
   render() {
-    const hash = window.location.hash || '#/admin/login';
+    const path = window.location.pathname || '/admin/login';
     let subFormHTML = "";
     
-    if (hash === '#/admin/request-access') {
+    if (path === '/admin/request-access') {
       subFormHTML = this.requestAccess.render();
-    } else if (hash === '#/admin/forgot-password') {
+    } else if (path === '/admin/forgot-password') {
       subFormHTML = this.forgotPassword.render();
-    } else if (hash === '#/admin/reset-password') {
+    } else if (path === '/admin/reset-password') {
       subFormHTML = this.resetPassword.render();
     } else {
       subFormHTML = this.loginForm.render();
@@ -48,12 +48,12 @@ export default class AdminLoginPage {
     Navbar.init();
     Footer.init();
 
-    const hash = window.location.hash || '#/admin/login';
-    if (hash === '#/admin/request-access') {
+    const path = window.location.pathname || '/admin/login';
+    if (path === '/admin/request-access') {
       RequestAccess.init();
-    } else if (hash === '#/admin/forgot-password') {
+    } else if (path === '/admin/forgot-password') {
       ForgotPassword.init();
-    } else if (hash === '#/admin/reset-password') {
+    } else if (path === '/admin/reset-password') {
       ResetPassword.init();
     } else {
       LoginForm.init();

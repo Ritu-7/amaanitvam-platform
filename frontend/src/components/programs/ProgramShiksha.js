@@ -1,7 +1,7 @@
 export default class ProgramShiksha {
   render() {
     return `
-      <section id="shiksha-program" class="relative py-28 bg-stone-50/50 overflow-hidden border-t border-b border-stone-200/20 z-20 select-none">
+      <section id="program-shiksha" class="relative py-28 bg-stone-50/50 overflow-hidden border-t border-b border-stone-200/20 z-20 select-none scroll-mt-24">
         
         <!-- Faint vertical line background thread -->
         <div class="absolute top-0 left-1/2 w-px h-full bg-stone-200/40 -translate-x-1/2 pointer-events-none z-0"></div>
@@ -18,7 +18,7 @@ export default class ProgramShiksha {
                 <h2 class="font-display font-semibold text-3xl text-text-dark mt-2 tracking-tight">Project Shiksha</h2>
                 
                 <!-- Official Description Narrative Lead -->
-                <p class="font-sans text-[14.5px] text-text-muted leading-relaxed font-light mt-4 italic border-l-2 border-amber-500/35 pl-4">
+                <p class="font-sans text-[20px] text-text-muted leading-[1.7] font-light mt-4 italic border-l-2 border-amber-500/35 pl-4">
                   Expanding access to quality learning opportunities and empowering young minds through education and guidance. Built on the belief that education is a powerful tool, we inspire curiosity and access for 45+ children.
                 </p>
               </div>
@@ -29,7 +29,7 @@ export default class ProgramShiksha {
                 <!-- Objectives Column -->
                 <div>
                   <h4 class="font-interface font-bold text-xs uppercase tracking-widest text-text-dark mb-4">Core Objectives</h4>
-                  <ul class="space-y-3 font-sans text-[13.5px] text-text-muted font-light">
+                  <ul class="space-y-4 font-sans text-[18px] text-text-muted font-light leading-[1.7]">
                     <li class="flex items-start gap-2">
                       <span class="text-amber-600 mt-1 text-xs">✓</span>
                       <span>Access to learning opportunities.</span>
@@ -56,7 +56,7 @@ export default class ProgramShiksha {
                 <!-- Activities Column -->
                 <div>
                   <h4 class="font-interface font-bold text-xs uppercase tracking-widest text-text-dark mb-4">Core Activities</h4>
-                  <ul class="space-y-3 font-sans text-[13.5px] text-text-muted font-light">
+                  <ul class="space-y-4 font-sans text-[18px] text-text-muted font-light leading-[1.7]">
                     <li class="flex items-start gap-2">
                       <span class="text-amber-600 mt-1 text-xs">▪</span>
                       <span>Educational support initiatives</span>

@@ -14,7 +14,7 @@ export default class GrowingWithCommunities {
               Growing With Communities
             </h2>
             
-            <p class="font-sans text-[15px] text-text-muted leading-relaxed font-light mb-8 max-w-xl">
+            <p class="type-section-description mb-8 max-w-2xl">
               We continue to expand our program pathways systematically to nurture educational growth, active community participation, and civic responsibility. Under our future milestone <strong class="font-semibold text-text-dark">"Growing Impact Across Communities,"</strong> we focus on establishing secure and inclusive learning spaces, enabling student-led surveys, and building pathways of change.
             </p>
 

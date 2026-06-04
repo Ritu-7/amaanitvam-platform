@@ -104,7 +104,7 @@ export default class CertificateTable {
 
           <!-- Actions -->
           <td class="py-4 pl-4 text-right space-x-2 shrink-0">
-            <a href="#/admin/certificates/view?id=${cert.id}" class="inline-flex items-center justify-center font-interface font-semibold text-[10px] uppercase tracking-widest px-2.5 py-1.5 rounded border border-stone-300 hover:border-text-dark hover:bg-stone-50 transition-colors">
+            <a href="/admin/certificates/view?id=${cert.id}" class="inline-flex items-center justify-center font-interface font-semibold text-[10px] uppercase tracking-widest px-2.5 py-1.5 rounded border border-stone-300 hover:border-text-dark hover:bg-stone-50 transition-colors">
               View
             </a>
             <button class="inline-flex items-center justify-center font-interface font-semibold text-[10px] uppercase tracking-widest px-2.5 py-1.5 rounded border border-rose-300 text-rose-700 hover:bg-rose-50 transition-colors btn-revoke-cert-action" data-cert-id="${cert.id}" ${isRevoked ? 'disabled class="cursor-not-allowed opacity-50"' : ''}>

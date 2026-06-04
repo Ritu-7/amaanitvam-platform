@@ -43,7 +43,7 @@ export default class RequestAccess {
         </form>
 
         <div class="pt-4 border-t border-stone-100 text-center text-[12px]">
-          <a href="#/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline">← Back to Login</a>
+          <a href="/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline">← Back to Login</a>
         </div>
       </div>
     `;
@@ -71,7 +71,7 @@ export default class RequestAccess {
             <p class="text-[11px] text-text-light font-light leading-normal">
               Systems admins will review matching LDAP directories and authorize credentials shortly.
             </p>
-            <a href="#/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline block pt-2">Return to Login</a>
+            <a href="/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline block pt-2">Return to Login</a>
           </div>
         `;
       });

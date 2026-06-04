@@ -1,7 +1,7 @@
 export default class AboutHero {
   render() {
     return `
-      <section id="about-hero" class="relative py-32 bg-stone-50 overflow-hidden flex items-center justify-center select-none border-b border-stone-200/50 z-10 pt-40">
+      <section id="about-hero" class="relative py-36 bg-stone-50 overflow-hidden flex items-center justify-center select-none border-b border-stone-200/50 z-10 pt-44">
         
         <!-- Faint background visual curves representing compassion ripple -->
         <div class="absolute -top-[10%] -left-[10%] w-[450px] h-[450px] bg-gradient-to-br from-pink-quartz/20 to-transparent rounded-full filter blur-3xl pointer-events-none z-0"></div>
@@ -16,14 +16,14 @@ export default class AboutHero {
             </span>
 
             <!-- Main Title in serif Playfair Display -->
-            <h1 class="font-display font-medium text-4xl sm:text-5xl lg:text-6xl text-text-dark tracking-tight leading-tight mb-6 stagger-load">
+            <h1 class="type-hero-title text-text-dark mb-6 stagger-load">
               About Amaanitvam Foundation
             </h1>
 
             <div class="w-12 h-px bg-pink-ruby/20 mb-8 stagger-load"></div>
 
             <!-- Legible explanatory subtitle -->
-            <p class="font-sans text-text-muted font-light text-base md:text-lg max-w-2xl leading-relaxed stagger-load">
+            <p class="type-section-description max-w-2xl stagger-load">
               A student-led movement inspiring learning, responsibility, and positive change for a stronger society.
             </p>
 
@@ -34,3 +34,4 @@ export default class AboutHero {
     `;
   }
 }
+

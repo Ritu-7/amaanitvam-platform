@@ -14,15 +14,15 @@ export default class CommunityCTA {
           </div>
 
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 font-interface">
-            <a href="#/volunteer" class="w-full sm:w-auto font-bold text-[11px] uppercase tracking-widest px-8 py-3 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
+            <a href="/volunteer" class="w-full sm:w-auto font-bold text-[11px] uppercase tracking-widest px-8 py-3 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
               Volunteer
             </a>
             
-            <a href="#/internships" class="w-full sm:w-auto font-bold text-[11px] uppercase tracking-widest px-8 py-3 rounded border border-stone-700 text-stone-300 hover:bg-stone-800 transition-colors">
+            <a href="/internships" class="w-full sm:w-auto font-bold text-[11px] uppercase tracking-widest px-8 py-3 rounded border border-stone-700 text-stone-300 hover:bg-stone-800 transition-colors">
               Internships
             </a>
 
-            <a href="#/donate" class="w-full sm:w-auto font-bold text-[11px] uppercase tracking-widest px-8 py-3 rounded bg-white text-text-dark hover:bg-stone-100 transition-colors">
+            <a href="/donate" class="w-full sm:w-auto font-bold text-[11px] uppercase tracking-widest px-8 py-3 rounded bg-white text-text-dark hover:bg-stone-100 transition-colors">
               Donate Support
             </a>
           </div>

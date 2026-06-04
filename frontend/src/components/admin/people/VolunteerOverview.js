@@ -30,7 +30,7 @@ export default class VolunteerOverview {
             <input type="checkbox" class="vol-row-select h-4 w-4 rounded border-stone-300 text-pink-ruby focus:ring-pink-ruby" data-id="${v.id}" ${isChecked} />
           </td>
           <td class="px-4 py-3 font-semibold text-text-dark">
-            <a href="#/admin/people/${v.id}" class="hover:text-pink-ruby hover:underline transition-colors">${v.name}</a>
+            <a href="/admin/people/${v.id}" class="hover:text-pink-ruby hover:underline transition-colors">${v.name}</a>
           </td>
           <td class="px-4 py-3 text-text-light font-interface">${v.email}</td>
           <td class="px-4 py-3 font-semibold text-text-dark font-interface">${hours} hrs</td>
@@ -42,7 +42,7 @@ export default class VolunteerOverview {
             <button class="vol-elevate-btn px-2 py-0.5 border border-stone-200 hover:border-text-dark rounded text-[11px] font-semibold text-text-muted" data-id="${v.id}">
               Elevate
             </button>
-            <a href="#/admin/people/${v.id}" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">
+            <a href="/admin/people/${v.id}" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">
               Profile
             </a>
           </td>

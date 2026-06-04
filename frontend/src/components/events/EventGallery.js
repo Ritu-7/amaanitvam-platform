@@ -1,4 +1,4 @@
-import { gallery } from '../../mocks/gallery.js';
+import { eventGallery as gallery } from '../../content/eventGallery.js';
 
 export default class EventGallery {
   render() {

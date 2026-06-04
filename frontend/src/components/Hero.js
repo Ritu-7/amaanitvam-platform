@@ -1,3 +1,5 @@
+import { PATHS } from '../constants/navigation.js';
+
 export default class Hero {
   render() {
     return `
@@ -27,31 +29,31 @@ export default class Hero {
             </p>
 
             <!-- Playfair Display dominant serif title -->
-            <h1 class="font-display font-medium text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12] mb-6 stagger-load">
+            <h1 class="type-hero-title text-white mb-6 stagger-load">
               Empowering Lives Through Education,<br class="hidden sm:inline"> Compassion, and Collective Action.
             </h1>
 
             <!-- Elegant subheadline -->
-            <p class="font-sans text-stone-300 font-light text-base sm:text-lg max-w-xl leading-relaxed mb-10 stagger-load">
+            <p class="type-section-description text-stone-300 max-w-xl mb-10 stagger-load">
               A student-led movement inspiring learning, responsibility, and positive change for a stronger society.
             </p>
 
             <!-- Elegant pathways -->
             <div class="flex flex-wrap gap-4 items-center stagger-load">
-              <a href="https://www.amaanitvam.org/donate/" target="_blank" class="inline-flex items-center gap-2 font-interface font-semibold text-[11px] uppercase tracking-widest px-8 py-4 rounded-md bg-gold-satin text-white hover:bg-gold-satin/95 shadow-sm transition-all duration-300">
+              <a href="${PATHS.DONATE}" class="inline-flex items-center gap-2 font-interface font-semibold text-[11px] uppercase tracking-widest px-8 py-4 rounded-md bg-gold-satin text-white hover:bg-gold-satin/95 shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold-satin focus:ring-offset-2 focus:ring-offset-stone-900" aria-label="Donate Now to Support Amaanitvam">
                 Donate Now
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </a>
-              <a href="#volunteer-form" class="inline-flex items-center gap-2 font-interface font-semibold text-[11px] uppercase tracking-widest px-8 py-4 rounded-md border border-white/40 text-white hover:bg-white hover:text-stone-900 transition-all duration-300">
+              <a href="${PATHS.VOLUNTEER}" class="inline-flex items-center gap-2 font-interface font-semibold text-[11px] uppercase tracking-widest px-8 py-4 rounded-md border border-white/40 text-white hover:bg-white hover:text-stone-900 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-900" aria-label="Get Involved as a Volunteer">
                 Get Involved
               </a>
             </div>
 
             <!-- Tertiary Certificate link -->
             <div class="mt-6 stagger-load">
-              <a href="#verify-certificate" class="inline-flex items-center gap-1.5 font-interface font-semibold text-[10px] uppercase tracking-widest text-stone-400 hover:text-white transition-colors duration-300 border-b border-transparent hover:border-white pb-0.5">
+              <a href="${PATHS.VERIFY}" class="inline-flex items-center gap-1.5 font-interface font-semibold text-[10px] uppercase tracking-widest text-stone-400 hover:text-white transition-colors duration-300 border-b border-transparent hover:border-white pb-0.5 focus:outline-none focus:text-white" aria-label="Verify Certificate Registry">
                 Verify Certificate
               </a>
             </div>
@@ -63,3 +65,4 @@ export default class Hero {
     `;
   }
 }
+

@@ -1,212 +1,235 @@
 import './style.css';
-import HomePage from './pages/HomePage.js';
-import AboutPage from './pages/AboutPage.js';
-import ProgramsPage from './pages/ProgramsPage.js';
-import ImpactPage from './pages/ImpactPage.js';
-import VolunteerPortal from './pages/VolunteerPortal.js';
-import VolunteerDashboard from './pages/VolunteerDashboard.js';
-import CertificateVerificationPage from './pages/CertificateVerificationPage.js';
-import AdminCertificatesPage from './pages/AdminCertificatesPage.js';
-import CertificateGeneratorPage from './pages/CertificateGeneratorPage.js';
-import AdminCertificateDetailPage from './pages/AdminCertificateDetailPage.js';
-import EventsPage from './pages/EventsPage.js';
-import EventDetailsPage from './pages/EventDetailsPage.js';
-import EventReportPage from './pages/EventReportPage.js';
-import AdminEventsPage from './pages/AdminEventsPage.js';
-import EventCreatorPage from './pages/EventCreatorPage.js';
-import EventReportPublisherPage from './pages/EventReportPublisherPage.js';
-import InternshipsPage from './pages/InternshipsPage.js';
-import DomainDetailsPage from './pages/DomainDetailsPage.js';
-import InternshipOpportunityPage from './pages/InternshipOpportunityPage.js';
-import InternshipApplicationPage from './pages/InternshipApplicationPage.js';
-import ApplicationStatusPage from './pages/ApplicationStatusPage.js';
-import InternDashboardPage from './pages/InternDashboardPage.js';
-import AdminInternshipsPage from './pages/AdminInternshipsPage.js';
-import ApplicantDetailsPage from './pages/ApplicantDetailsPage.js';
-import ContactPage from './pages/ContactPage.js';
-import DonatePage from './pages/DonatePage.js';
-import AdminInquiriesPage from './pages/AdminInquiriesPage.js';
-import AdminDonationsPage from './pages/AdminDonationsPage.js';
-
-// New Admin Operations Pages
-import AdminLoginPage from './pages/AdminLoginPage.js';
-import AdminDashboardPage from './pages/AdminDashboardPage.js';
-import AdminPeoplePage from './pages/AdminPeoplePage.js';
-import AdminPersonProfilePage from './pages/AdminPersonProfilePage.js';
-import AdminProjectsPage from './pages/AdminProjectsPage.js';
-import AdminGlobalSearchPage from './pages/AdminGlobalSearchPage.js';
-import AdminVolunteersPage from './pages/AdminVolunteersPage.js';
-import AdminPartnershipsPage from './pages/AdminPartnershipsPage.js';
-import AdminAuditLogsPage from './pages/AdminAuditLogsPage.js';
-import AdminSystemHealthPage from './pages/AdminSystemHealthPage.js';
-import AdminAnalyticsPage from './pages/AdminAnalyticsPage.js';
+import { ROUTES } from './router/routes.js';
+import { META } from './config/meta.js';
+import { analytics } from './services/analytics.js';
 
 const appElement = document.querySelector('#app');
 
-const routes = {
-  '#/': HomePage,
-  '#/about': AboutPage,
-  '#/programs': ProgramsPage,
-  '#/impact': ImpactPage,
-  '#/volunteer': VolunteerPortal,
-  '#/volunteer/dashboard': VolunteerDashboard,
-  '#/verify': CertificateVerificationPage,
-  '#/admin/certificates': AdminCertificatesPage,
-  '#/admin/certificates/new': CertificateGeneratorPage,
-  '#/admin/certificates/view': AdminCertificateDetailPage,
+// Global navigation helper for programmatically controlled SPA path transitions
+window.navigateSPA = (path) => {
+  window.history.pushState(null, '', path);
+  router();
 };
 
-function router() {
-  const hash = window.location.hash || '#/';
-  
-  let PageClass;
-  let targetAnchor = null;
-  
-  if (hash === '#/about') {
-    PageClass = AboutPage;
-  } else if (hash === '#/programs') {
-    PageClass = ProgramsPage;
-  } else if (hash === '#/impact') {
-    PageClass = ImpactPage;
-  } else if (hash === '#/volunteer') {
-    PageClass = VolunteerPortal;
-  } else if (hash === '#/volunteer/dashboard') {
-    // Route guard check
-    const isLoggedIn = localStorage.getItem('amaanitvam_volunteer_logged_in') === 'true';
-    if (!isLoggedIn) {
-      window.location.hash = '#/volunteer';
-      return;
-    }
-    PageClass = VolunteerDashboard;
-  } else if (hash === '#/verify') {
-    PageClass = CertificateVerificationPage;
-  } else if (hash === '#/admin/login' || hash === '#/admin/request-access' || hash === '#/admin/forgot-password' || hash === '#/admin/reset-password') {
-    PageClass = AdminLoginPage;
-  } else if (hash === '#/admin') {
-    PageClass = AdminDashboardPage;
-  } else if (hash.startsWith('#/admin/search')) {
-    PageClass = AdminGlobalSearchPage;
-  } else if (hash.startsWith('#/admin/people/')) {
-    PageClass = AdminPersonProfilePage;
-  } else if (hash === '#/admin/people') {
-    PageClass = AdminPeoplePage;
-  } else if (hash === '#/admin/volunteers') {
-    PageClass = AdminVolunteersPage;
-  } else if (hash === '#/admin/internships') {
-    PageClass = AdminInternshipsPage;
-  } else if (hash === '#/admin/projects') {
-    PageClass = AdminProjectsPage;
-  } else if (hash === '#/admin/certificates') {
-    PageClass = AdminCertificatesPage;
-  } else if (hash === '#/admin/certificates/new') {
-    PageClass = CertificateGeneratorPage;
-  } else if (hash.startsWith('#/admin/certificates/view')) {
-    PageClass = AdminCertificateDetailPage;
-  } else if (hash.startsWith('#/admin/events')) {
-    PageClass = AdminEventsPage;
-  } else if (hash === '#/admin/events/new') {
-    PageClass = EventCreatorPage;
-  } else if (hash === '#/admin/events/report') {
-    PageClass = EventReportPublisherPage;
-  } else if (hash === '#/admin/donations') {
-    PageClass = AdminDonationsPage;
-  } else if (hash === '#/admin/partnerships') {
-    PageClass = AdminPartnershipsPage;
-  } else if (hash === '#/admin/inquiries') {
-    PageClass = AdminInquiriesPage;
-  } else if (hash === '#/admin/analytics') {
-    PageClass = AdminAnalyticsPage;
-  } else if (hash === '#/admin/audit-logs') {
-    PageClass = AdminAuditLogsPage;
-  } else if (hash === '#/admin/system-health') {
-    PageClass = AdminSystemHealthPage;
-  } else if (hash === '#/events') {
-    PageClass = EventsPage;
-  } else if (hash.startsWith('#/events/view/')) {
-    PageClass = EventDetailsPage;
-  } else if (hash.startsWith('#/events/')) {
-    PageClass = EventReportPage;
-  } else if (hash === '#/internships') {
-    PageClass = InternshipsPage;
-  } else if (hash.startsWith('#/internships/domain/')) {
-    PageClass = DomainDetailsPage;
-  } else if (hash.startsWith('#/internships/opportunity/')) {
-    PageClass = InternshipOpportunityPage;
-  } else if (hash === '#/internships/apply') {
-    PageClass = InternshipApplicationPage;
-  } else if (hash === '#/internships/status') {
-    PageClass = ApplicationStatusPage;
-  } else if (hash === '#/intern/dashboard') {
-    PageClass = InternDashboardPage;
-  } else if (hash === '#/contact') {
-    PageClass = ContactPage;
-  } else if (hash === '#/donate') {
-    PageClass = DonatePage;
-  } else if (hash === '#/' || hash === '') {
-    PageClass = HomePage;
-  } else if (hash.startsWith('#') && !hash.startsWith('#/')) {
-    // Standard homepage scroll anchors (like #community, #volunteer-form, etc.)
-    PageClass = HomePage;
-    targetAnchor = hash;
-  } else {
-    PageClass = HomePage;
+// Regex route matcher compiling path parameter checks
+function matchRoute(routePath, currentPath) {
+  // Escape slash characters and replace parameter tokens like :slug or :id with capturing groups
+  const paramRegex = routePath.replace(/\//g, '\\/').replace(/:[a-zA-Z0-9_]+/g, '([^\\/]+)');
+  const regex = new RegExp(`^${paramRegex}\\/?$`);
+  const match = currentPath.match(regex);
+  if (match) {
+    return {
+      matched: true,
+      params: match.slice(1)
+    };
   }
-  
-  const previousPage = appElement.dataset.currentPage;
-  
-  let newPageName = 'home';
-  if (PageClass === AboutPage) newPageName = 'about';
-  else if (PageClass === ProgramsPage) newPageName = 'programs';
-  else if (PageClass === ImpactPage) newPageName = 'impact';
-  else if (PageClass === VolunteerPortal) newPageName = 'volunteer';
-  else if (PageClass === VolunteerDashboard) newPageName = 'volunteer-dashboard';
-  else if (PageClass === CertificateVerificationPage) newPageName = 'verify';
-  else if (PageClass === AdminLoginPage) newPageName = 'admin-login';
-  else if (PageClass === AdminDashboardPage) newPageName = 'admin-dashboard';
-  else if (PageClass === AdminGlobalSearchPage) newPageName = 'admin-search';
-  else if (PageClass === AdminPersonProfilePage) newPageName = 'admin-person-profile';
-  else if (PageClass === AdminPeoplePage) newPageName = 'admin-people';
-  else if (PageClass === AdminVolunteersPage) newPageName = 'admin-volunteers';
-  else if (PageClass === AdminInternshipsPage) newPageName = 'admin-internships';
-  else if (PageClass === AdminProjectsPage) newPageName = 'admin-projects';
-  else if (PageClass === AdminEventsPage) newPageName = 'admin-events';
-  else if (PageClass === AdminDonationsPage) newPageName = 'admin-donations';
-  else if (PageClass === AdminPartnershipsPage) newPageName = 'admin-partnerships';
-  else if (PageClass === AdminInquiriesPage) newPageName = 'admin-inquiries';
-  else if (PageClass === AdminAnalyticsPage) newPageName = 'admin-analytics';
-  else if (PageClass === AdminAuditLogsPage) newPageName = 'admin-audit-logs';
-  else if (PageClass === AdminSystemHealthPage) newPageName = 'admin-system-health';
-  else if (PageClass === AdminCertificatesPage) newPageName = 'admin-certificates';
-  else if (PageClass === CertificateGeneratorPage) newPageName = 'admin-certificates-new';
-  else if (PageClass === AdminCertificateDetailPage) newPageName = 'admin-certificates-view';
-  else if (PageClass === EventsPage) newPageName = 'events';
-  else if (PageClass === EventDetailsPage) newPageName = 'event-details';
-  else if (PageClass === EventReportPage) newPageName = 'event-report';
-  else if (PageClass === InternshipsPage) newPageName = 'internships';
-  else if (PageClass === DomainDetailsPage) newPageName = 'internships-domain';
-  else if (PageClass === InternshipOpportunityPage) newPageName = 'internships-opportunity';
-  else if (PageClass === InternshipApplicationPage) newPageName = 'internships-apply';
-  else if (PageClass === ApplicationStatusPage) newPageName = 'internships-status';
-  else if (PageClass === InternDashboardPage) newPageName = 'intern-dashboard';
-  else if (PageClass === ContactPage) newPageName = 'contact';
-  else if (PageClass === DonatePage) newPageName = 'donate';
-  
-  if (previousPage !== newPageName) {
-    window.scrollTo(0, 0);
-    const pageInstance = new PageClass();
-    appElement.innerHTML = pageInstance.render();
-    appElement.dataset.currentPage = newPageName;
-    pageInstance.init();
-  }
-  
-  // If we have an anchor, let's scroll to it after rendering
-  if (targetAnchor) {
-    setTimeout(() => {
-      const el = document.querySelector(targetAnchor);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, previousPage !== newPageName ? 300 : 50);
+  return { matched: false };
+}
+
+// Redirects legacy hash-routing parameters automatically to clean paths
+function resolveLegacyHashRoute() {
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#/')) {
+    const cleanPath = hash.substring(1); // Strip the leading '#' symbol
+    window.history.replaceState(null, '', cleanPath);
   }
 }
 
-window.addEventListener('hashchange', router);
-window.addEventListener('load', router);
+// Resolves and updates HTML meta attributes dynamically
+function updateMetadata(pathname) {
+  let meta = META[pathname];
+
+  // Match dynamic routes patterns for fallback metadata injection
+  if (!meta) {
+    if (pathname.startsWith('/events/view/')) {
+      meta = {
+        title: 'Event Details | Amaanitvam Foundation',
+        description: 'Review active logistics, agenda, and roster check-ins for this upcoming drive.',
+        image: '/og/events-og.jpg'
+      };
+    } else if (pathname.startsWith('/internships/domain/')) {
+      meta = {
+        title: 'Internship Domain Details | Amaanitvam Foundation',
+        description: 'Prerequisites, skills catalog, and details for specialization streams.',
+        image: '/og/internships-og.jpg'
+      };
+    } else if (pathname.startsWith('/internships/opportunity/')) {
+      meta = {
+        title: 'Opportunity Scope | Amaanitvam Foundation',
+        description: 'Detailed internship position descriptors and application registers.',
+        image: '/og/internships-og.jpg'
+      };
+    } else if (pathname.startsWith('/admin/people/')) {
+      meta = {
+        title: 'Person Registry Profile | Admin Hub',
+        description: 'Operational operations profile tracking volunteer records and credentials.',
+        image: '/og/home-og.jpg'
+      };
+    } else if (pathname.startsWith('/admin/certificates/view')) {
+      meta = {
+        title: 'Certificate Record Details | Admin Hub',
+        description: 'View layout and template preview options for issued credentials.',
+        image: '/og/home-og.jpg'
+      };
+    } else {
+      meta = META['/']; // Fallback default
+    }
+  }
+
+  // Inject title
+  document.title = meta.title;
+
+  // Inject meta description
+  let descMeta = document.querySelector('meta[name="description"]');
+  if (!descMeta) {
+    descMeta = document.createElement('meta');
+    descMeta.setAttribute('name', 'description');
+    document.head.appendChild(descMeta);
+  }
+  descMeta.setAttribute('content', meta.description);
+
+  // Inject Open Graph tags
+  updateOgTag('og:title', meta.title);
+  updateOgTag('og:description', meta.description);
+  updateOgTag('og:image', meta.image);
+  updateOgTag('og:url', window.location.href);
+}
+
+function updateOgTag(property, content) {
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('property', property);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
+}
+
+// Global Single Page Application Router Orchestrator
+async function router() {
+  const currentPath = window.location.pathname || '/';
+  
+  let matchedRoute = null;
+  let params = [];
+
+  for (const route of ROUTES) {
+    const res = matchRoute(route.path, currentPath);
+    if (res.matched) {
+      matchedRoute = route;
+      params = res.params;
+      break;
+    }
+  }
+
+  // Fallback to Home if path doesn't match any registered routes
+  if (!matchedRoute) {
+    matchedRoute = ROUTES.find(r => r.path === '/');
+  }
+
+  // Apply Auth Guards based on Role Scope
+  if (matchedRoute.authRequired) {
+    if (matchedRoute.roleScope === 'volunteer') {
+      const isLoggedIn = localStorage.getItem('amaanitvam_volunteer_logged_in') === 'true';
+      if (!isLoggedIn) {
+        window.history.replaceState(null, '', '/volunteer');
+        router();
+        return;
+      }
+    } else if (matchedRoute.roleScope === 'admin') {
+      const sessionStr = sessionStorage.getItem('amaanitvam_admin_session');
+      let isLoggedIn = false;
+      try {
+        const sessionObj = JSON.parse(sessionStr);
+        isLoggedIn = sessionObj && sessionObj.loggedIn === true;
+      } catch (err) {}
+      if (!isLoggedIn) {
+        window.history.replaceState(null, '', '/admin/login');
+        router();
+        return;
+      }
+    } else if (matchedRoute.roleScope === 'intern') {
+      const isLoggedIn = localStorage.getItem('amaanitvam_intern_logged_in') === 'true';
+      if (!isLoggedIn) {
+        window.history.replaceState(null, '', '/internships');
+        router();
+        return;
+      }
+    }
+  }
+
+  // Resolve verify redirection parameter
+  if (currentPath === '/verify') {
+    window.history.replaceState(null, '', '/verify-certificate');
+    router();
+    return;
+  }
+
+  try {
+    // Dynamic import to support Vite code splitting
+    const module = await matchedRoute.component();
+    const PageClass = module.default;
+
+    // Build page name slug to track view swapping and avoid reload loop
+    const newPageName = window.location.pathname + window.location.search;
+    const previousPage = appElement.dataset.currentPage;
+
+    if (previousPage !== newPageName) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      document.body.style.overflow = ''; // Release scroll lock on page swap
+      const pageInstance = new PageClass();
+      appElement.innerHTML = pageInstance.render();
+      appElement.dataset.currentPage = newPageName;
+      pageInstance.init();
+    }
+
+    // Refresh active highlights and headings
+    updateMetadata(currentPath);
+    analytics.trackPageView(currentPath);
+
+  } catch (err) {
+    console.error('[Router] Lazy resolution failure:', err);
+    appElement.innerHTML = `
+      <div class="min-h-screen flex flex-col items-center justify-center bg-stone-50 select-none font-sans text-center">
+        <h2 class="text-xl font-display font-semibold text-stone-900 mb-2">Failed to load content</h2>
+        <p class="text-text-muted text-[14px] mb-6">A network error occurred while loading this section.</p>
+        <button onclick="window.location.reload()" class="px-6 py-2.5 rounded bg-pink-ruby text-white font-interface font-bold text-[11px] uppercase tracking-wider shadow">
+          Refresh Page
+        </button>
+      </div>
+    `;
+  }
+}
+
+// Intercepts local link clicks and redirects them to history stack
+document.addEventListener('click', (e) => {
+  const anchor = e.target.closest('a');
+  if (!anchor) return;
+
+  const href = anchor.getAttribute('href');
+
+  // Handle smooth scroll for page anchor tags
+  if (href && href.startsWith('#') && !href.startsWith('#/')) {
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+    return;
+  }
+
+  // Intercept valid relative paths and push state to history
+  if (href && href.startsWith('/') && !href.startsWith('//') && !anchor.target) {
+    e.preventDefault();
+    window.history.pushState(null, '', href);
+    router();
+  }
+});
+
+// Watch browser state triggers (like back and forward buttons)
+window.addEventListener('popstate', router);
+
+// Startup initializer
+window.addEventListener('DOMContentLoaded', () => {
+  resolveLegacyHashRoute();
+  router();
+});

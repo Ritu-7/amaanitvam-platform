@@ -39,7 +39,8 @@ export default class VolunteerDashboard {
     // Route guard check
     if (!isLoggedIn) {
       setTimeout(() => {
-        window.location.hash = '#/volunteer';
+        window.history.pushState(null, '', '/volunteer');
+        window.dispatchEvent(new Event('popstate'));
       }, 50);
       return `
         <div class="flex items-center justify-center min-h-screen bg-stone-50">
@@ -146,7 +147,8 @@ export default class VolunteerDashboard {
     if (authBtn) {
       authBtn.addEventListener('click', () => {
         localStorage.setItem('amaanitvam_volunteer_logged_in', 'false');
-        window.location.hash = '#/volunteer';
+        window.history.pushState(null, '', '/volunteer');
+        window.dispatchEvent(new Event('popstate'));
       });
     }
 

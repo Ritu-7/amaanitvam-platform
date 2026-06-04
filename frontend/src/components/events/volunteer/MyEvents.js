@@ -65,7 +65,7 @@ export default class MyEvents {
         certificateButton = `
           <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
             <span class="text-[12px] text-text-light font-sans">Certificate Released</span>
-            <a href="#/verify?code=${mockCertCode}" class="inline-flex items-center gap-1 font-interface font-semibold text-[9.5px] uppercase tracking-widest px-3 py-1.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 transition-colors">
+            <a href="/verify?code=${mockCertCode}" class="inline-flex items-center gap-1 font-interface font-semibold text-[9.5px] uppercase tracking-widest px-3 py-1.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 transition-colors">
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               View Certificate
             </a>

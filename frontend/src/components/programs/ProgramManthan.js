@@ -1,7 +1,7 @@
 export default class ProgramManthan {
   render() {
     return `
-      <section id="manthan-program" class="relative py-28 bg-white overflow-hidden z-20 select-none">
+      <section id="program-manthan" class="relative py-28 bg-white overflow-hidden z-20 select-none scroll-mt-24">
         
         <!-- Faint vertical line background thread -->
         <div class="absolute top-0 left-1/2 w-px h-full bg-stone-200/40 -translate-x-1/2 pointer-events-none z-0"></div>
@@ -25,7 +25,7 @@ export default class ProgramManthan {
                 <h2 class="font-display font-semibold text-3xl text-text-dark mt-2 tracking-tight">Project Manthan</h2>
                 
                 <!-- Official Description Narrative Lead -->
-                <p class="font-sans text-[14.5px] text-text-muted leading-relaxed font-light mt-4 italic border-l-2 border-pink-ruby/30 pl-4">
+                <p class="font-sans text-[20px] text-text-muted leading-[1.7] font-light mt-4 italic border-l-2 border-pink-ruby/30 pl-4">
                   Providing educational support, awareness, and mentorship to help underprivileged children build brighter futures through learning. This is our foundation, supporting 60+ children with active learning classes and mentor networks.
                 </p>
               </div>
@@ -36,7 +36,7 @@ export default class ProgramManthan {
                 <!-- Objectives Column -->
                 <div>
                   <h4 class="font-interface font-bold text-xs uppercase tracking-widest text-text-dark mb-4">Core Objectives</h4>
-                  <ul class="space-y-3 font-sans text-[13.5px] text-text-muted font-light">
+                  <ul class="space-y-4 font-sans text-[18px] text-text-muted font-light leading-[1.7]">
                     <li class="flex items-start gap-2">
                       <span class="text-pink-ruby mt-1 text-xs">✓</span>
                       <span>Promote awareness about the importance of education.</span>
@@ -63,7 +63,7 @@ export default class ProgramManthan {
                 <!-- Activities Column -->
                 <div>
                   <h4 class="font-interface font-bold text-xs uppercase tracking-widest text-text-dark mb-4">Core Activities</h4>
-                  <ul class="space-y-3 font-sans text-[13.5px] text-text-muted font-light">
+                  <ul class="space-y-4 font-sans text-[18px] text-text-muted font-light leading-[1.7]">
                     <li class="flex items-start gap-2">
                       <span class="text-pink-ruby mt-1 text-xs">▪</span>
                       <span>Free educational classes</span>

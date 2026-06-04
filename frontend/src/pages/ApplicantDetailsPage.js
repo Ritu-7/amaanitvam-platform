@@ -9,8 +9,8 @@ export default class ApplicantDetailsPage {
   }
 
   render() {
-    const hash = window.location.hash;
-    const parts = hash.split('/');
+    const path = window.location.pathname;
+    const parts = path.split('/');
     const id = parts[parts.length - 1];
     
     // Create evaluator instance dynamically for the specified application ID
@@ -25,7 +25,7 @@ export default class ApplicantDetailsPage {
             
             <!-- Breadcrumbs -->
             <div class="text-left font-interface text-[11px] uppercase tracking-widest text-text-light mb-6">
-              <a href="#/admin/internships" class="hover:text-pink-ruby">Internships Console</a> / 
+              <a href="/admin/internships" class="hover:text-pink-ruby">Internships Console</a> / 
               <span class="text-text-dark">Evaluator Scorecard</span>
             </div>
 

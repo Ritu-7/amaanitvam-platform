@@ -11,7 +11,7 @@ export default class ApplicationStatusTracker {
 
   render() {
     // Check if redirect parameters exist in URL query e.g. ?appId=AMT-INT-2026-004
-    const urlParams = new URLSearchParams(window.location.hash.includes('?') ? window.location.hash.substring(window.location.hash.indexOf('?')) : '');
+    const urlParams = new URLSearchParams(window.location.search);
     const redirectAppId = urlParams.get('appId');
     if (redirectAppId && !this.hasSearched) {
       this.searchedId = redirectAppId;
@@ -217,9 +217,9 @@ export default class ApplicationStatusTracker {
 
         this.hasSearched = true;
         
-        // Remove appId query from hash URL if any, to avoid looping redirects
-        if (window.location.hash.includes('?')) {
-          history.replaceState(null, '', '#/internships/status');
+        // Remove appId query from URL if any, to avoid looping redirects
+        if (window.location.search) {
+          history.replaceState(null, '', '/internships/status');
         }
 
         if (onStateChangeCallback) onStateChangeCallback();

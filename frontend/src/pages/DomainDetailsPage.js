@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar.js';
 import Footer from '../components/Footer.js';
 import { internshipOpportunities } from '../mocks/opportunities.js';
+import { getDomainIcon } from '../utils/icons.js';
 
 export default class DomainDetailsPage {
   constructor() {
@@ -9,14 +10,13 @@ export default class DomainDetailsPage {
   }
 
   render() {
-    const hash = window.location.hash;
-    const parts = hash.split('/');
+    const path = window.location.pathname;
+    const parts = path.split('/');
     const slug = parts[parts.length - 1];
 
     const domainsData = {
       "web-development": {
         title: "Web Development",
-        icon: "💻",
         overview: "Build and optimize responsive client-side web architectures, administrative panels, and state-level registries for the Amaanitvam platform.",
         skills: ["Component architectures", "State management", "SPA routing", "Performance optimization", "CSS styling systems"],
         tools: ["HTML5 / CSS3", "Modern JavaScript (ES6+)", "Git & GitHub", "Chrome DevTools"],
@@ -24,7 +24,6 @@ export default class DomainDetailsPage {
       },
       "ui-ux-design": {
         title: "UI/UX Design",
-        icon: "🎨",
         overview: "Map user journeys, construct wireframes, and design high-fidelity layouts for our digital learning classrooms and public outreach spaces.",
         skills: ["User research", "Wireframing & storyboarding", "Interactive prototyping", "Accessibility compliance (WCAG)", "Design systems creation"],
         tools: ["Figma", "FigJam", "Adobe Illustrator"],
@@ -32,7 +31,6 @@ export default class DomainDetailsPage {
       },
       "graphic-design": {
         title: "Graphic Design",
-        icon: "📐",
         overview: "Design print worksheets, curriculum handouts, social media campaigns, and official digital certificate templates.",
         skills: ["Visual hierarchy", "Typography scales", "Vector illustration", "Branding compliance"],
         tools: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
@@ -40,7 +38,6 @@ export default class DomainDetailsPage {
       },
       "content-writing": {
         title: "Content Writing",
-        icon: "✍️",
         overview: "Write descriptive event summaries, newsletter articles, and donor narratives detailing Amaanitvam's social impact.",
         skills: ["Creative storytelling", "Copyediting & proofing", "SEO optimization", "Impact documentation"],
         tools: ["Google Workspace", "Medium", "Markdown editors"],
@@ -48,7 +45,6 @@ export default class DomainDetailsPage {
       },
       "data-analysis": {
         title: "Data Analysis",
-        icon: "📊",
         overview: "Gather field inputs, calculate program efficacy indices, and compile demographic metric datasets to assist decision-making.",
         skills: ["Quantitative reporting", "Survey design", "Statistical summaries", "Dashboard visualizations"],
         tools: ["Microsoft Excel", "Google Sheets", "Python (Pandas)", "Tableau"],
@@ -56,7 +52,6 @@ export default class DomainDetailsPage {
       },
       "community-outreach": {
         title: "Community Outreach",
-        icon: "📢",
         overview: "Coordinate regional drives, manage center resources, and organize hygiene camps in local communities.",
         skills: ["Public communication", "Logistics coordination", "Event planning", "Volunteer management"],
         tools: ["Slack", "WhatsApp Business", "Google Maps"],
@@ -64,7 +59,6 @@ export default class DomainDetailsPage {
       },
       "operations": {
         title: "Operations & HR",
-        icon: "⚙️",
         overview: "Coordinate intern onboarding checklists, manage calendar synchronization, and verify compliance metrics.",
         skills: ["Project management", "Workflow auditing", "Schedule tracking", "Human resource logistics"],
         tools: ["Notion", "Google Calendar", "Excel"],
@@ -72,7 +66,6 @@ export default class DomainDetailsPage {
       },
       "marketing": {
         title: "Campaign Marketing",
-        icon: "🚀",
         overview: "Build public campaigns, manage social content calendars, and handle press releases to increase visibility.",
         skills: ["Growth marketing", "Visual layouting", "Post scheduling", "User engagement analysis"],
         tools: ["Buffer", "Canva", "Mailchimp"],
@@ -80,7 +73,6 @@ export default class DomainDetailsPage {
       },
       "research": {
         title: "Social Research",
-        icon: "🔍",
         overview: "Analyze socioeconomic demographics and benchmark governmental welfare schemes to optimize foundation initiatives.",
         skills: ["Qualitative interviews", "Secondary research", "Comparative policy reviews", "Policy mapping"],
         tools: ["Zotero", "Google Scholar", "NVivo"],
@@ -121,9 +113,9 @@ export default class DomainDetailsPage {
           <h4 class="font-display font-semibold text-[17.5px] text-text-dark mb-2">${opp.title}</h4>
           <p class="font-sans text-[12.5px] text-text-muted leading-relaxed font-light line-clamp-3 mb-4">${opp.description}</p>
         </div>
-        <div class="flex items-center justify-between pt-3 border-t border-stone-100">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-stone-100">
           <span class="font-interface text-[11px] font-bold text-text-dark">${opp.remainingSeats} Seats Available</span>
-          <a href="#/internships/opportunity/${opp.slug}" class="font-interface font-bold text-[10px] uppercase tracking-widest px-4 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
+          <a href="/internships/opportunity/${opp.slug}" class="text-center font-interface font-bold text-[10px] uppercase tracking-widest px-4 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors w-full sm:w-auto">
             Details & Apply
           </a>
         </div>
@@ -134,17 +126,17 @@ export default class DomainDetailsPage {
       <div class="flex flex-col min-h-screen bg-stone-50 select-none">
         ${this.navbar.render()}
 
-        <main class="flex-grow py-12 px-6">
+        <main class="flex-grow pt-32 md:pt-36 pb-12 px-6">
           <div class="max-w-5xl mx-auto space-y-10">
             
             <!-- Breadcrumb -->
             <div class="text-left font-interface text-[11px] uppercase tracking-widest text-text-light">
-              <a href="#/internships" class="hover:text-pink-ruby">Internships</a> / <span class="text-text-dark">Specializations</span>
+              <a href="/internships" class="hover:text-pink-ruby">Internships</a> / <span class="text-text-dark">Specializations</span>
             </div>
 
             <!-- Header Card -->
             <div class="bg-white border border-stone-200/80 rounded-2xl p-8 shadow-sm flex flex-col md:flex-row items-start gap-6 text-left scroll-reveal revealed">
-              <span class="text-6xl p-4 bg-stone-50 border border-stone-150 rounded-xl leading-none select-none">${domain.icon}</span>
+              <span class="p-4 bg-stone-50 border border-stone-150 rounded-xl leading-none select-none" aria-hidden="true">${getDomainIcon(slug, "w-12 h-12")}</span>
               <div class="space-y-3 flex-grow">
                 <span class="font-interface font-semibold text-[11px] uppercase tracking-widest text-pink-ruby">Specialization Stream</span>
                 <h2 class="font-display font-semibold text-3xl text-text-dark tracking-tight">${domain.title}</h2>

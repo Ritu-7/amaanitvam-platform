@@ -14,12 +14,12 @@ export default class ApplicationStatusPage {
       <div class="flex flex-col min-h-screen bg-stone-50 select-none">
         ${this.navbar.render()}
 
-        <main class="flex-grow py-12 px-6">
+        <main class="flex-grow pt-32 md:pt-36 pb-12 px-6">
           <div class="max-w-3xl mx-auto space-y-8">
             
             <!-- Breadcrumbs -->
             <div class="text-left font-interface text-[11px] uppercase tracking-widest text-text-light">
-              <a href="#/internships" class="hover:text-pink-ruby">Internships</a> / <span class="text-text-dark">Status Tracker</span>
+              <a href="/internships" class="hover:text-pink-ruby">Internships</a> / <span class="text-text-dark">Status Tracker</span>
             </div>
 
             <!-- Renders Tracker Component -->

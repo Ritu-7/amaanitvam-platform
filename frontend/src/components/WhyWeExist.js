@@ -1,7 +1,7 @@
 export default class WhyWeExist {
   render() {
     return `
-      <section id="about" class="relative py-28 bg-stone-50/50 overflow-hidden border-b border-stone-200/20 z-20">
+      <section id="about" class="relative py-36 bg-stone-50/50 overflow-hidden border-b border-stone-200/20 z-20">
         <!-- Thin gray vertical thread background connector -->
         <div class="absolute top-0 left-1/2 w-px h-full bg-stone-200/40 -translate-x-1/2 pointer-events-none z-0"></div>
 
@@ -10,8 +10,8 @@ export default class WhyWeExist {
             
             <!-- Left Column: Portrait landscape child in natural borders -->
             <div class="lg:col-span-5 flex justify-center scroll-reveal">
-              <div class="bg-white p-4 border border-stone-200/80 rounded-2xl shadow-sm max-w-sm overflow-hidden select-none hover:shadow-md transition-shadow duration-500">
-                <img src="/landscape-child.jpg" alt="Child holding notebook and pencil in natural landscape hills under golden light" class="rounded-xl object-cover aspect-[4/5] hover:scale-102 transition-transform duration-700">
+               <div class="bg-white p-4 border border-stone-200/80 rounded-2xl shadow-sm max-w-sm overflow-hidden select-none hover:shadow-md transition-shadow duration-500">
+                <img src="/landscape-child.jpg" alt="Child holding notebook and pencil in natural landscape hills under golden light" loading="lazy" class="rounded-xl object-cover aspect-[4/5] hover:scale-102 transition-transform duration-700">
               </div>
             </div>
 
@@ -20,7 +20,7 @@ export default class WhyWeExist {
               
               <div class="max-w-xl mb-12 stagger-load">
                 <span class="font-interface font-semibold text-[11px] uppercase tracking-widest text-pink-ruby">Why We Exist</span>
-                <h2 class="font-display font-semibold text-3xl md:text-4xl text-text-dark mt-2 tracking-tight">
+                <h2 class="type-section-heading mt-2">
                   The Journey of Purpose
                 </h2>
               </div>
@@ -36,11 +36,11 @@ export default class WhyWeExist {
                   <!-- Node dot representing Today -->
                   <div class="absolute -left-[30px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-pink-ruby bg-white z-10 shadow-sm"></div>
                   
-                  <span class="font-interface font-bold text-xs uppercase tracking-widest text-pink-ruby mb-2 block">
+                  <span class="type-h3 text-pink-ruby mb-2 block">
                     Our Mission — Today
                   </span>
-                  <p class="font-sans text-[14.5px] text-text-muted leading-relaxed max-w-xl font-light">
-                    At Amaanitvam Foundation, we strive to inspire compassion, responsibility, and active citizenship. Through education, mentorship, awareness, and community engagement, we empower individuals to create meaningful change and contribute to a more inclusive, equitable, and compassionate society where everyone has the opportunity to learn, grow, and thrive.
+                  <p class="type-body max-w-xl">
+                    We cultivate civic responsibility and active mentorship. By providing structured classroom support, guiding personal growth, and facilitating direct community outreach, we build spaces where children find the resources they need to shape their own futures.
                   </p>
                 </div>
 
@@ -49,11 +49,11 @@ export default class WhyWeExist {
                   <!-- Node dot representing Tomorrow -->
                   <div class="absolute -left-[30px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-amber-500 bg-white z-10 shadow-sm"></div>
                   
-                  <span class="font-interface font-bold text-xs uppercase tracking-widest text-amber-600 mb-2 block">
+                  <span class="type-h3 text-amber-600 mb-2 block">
                     Our Vision — Tomorrow
                   </span>
-                  <p class="font-sans text-[14.5px] text-text-muted leading-relaxed max-w-xl font-light">
-                    Amaanitvam Foundation envisions a brighter and more inclusive India where every individual has access to opportunities for learning, growth, and self-development. Through education, mentorship, and community-driven action, we aim to nurture confident, responsible, and compassionate citizens who contribute positively to society and inspire lasting change.
+                  <p class="type-body max-w-xl">
+                    We envision a future where educational equity is a reality for every child. Our goal is to nurture a generation of confident, community-focused leaders who carry forward the values of mutual support and shared social responsibility.
                   </p>
                 </div>
 
@@ -67,3 +67,4 @@ export default class WhyWeExist {
     `;
   }
 }
+

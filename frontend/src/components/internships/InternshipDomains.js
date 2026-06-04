@@ -1,67 +1,61 @@
+import { getDomainIcon } from '../../utils/icons.js';
+
 export default class InternshipDomains {
   render() {
     const domains = [
       {
         slug: "web-development",
         title: "Web Development",
-        description: "Develop volunteer portals, state registries, and front-end architectures using JavaScript, HTML, and CSS.",
-        icon: "💻"
+        description: "Develop volunteer portals, state registries, and front-end architectures using JavaScript, HTML, and CSS."
       },
       {
         slug: "ui-ux-design",
         title: "UI/UX Design",
-        description: "Create high-fidelity wireframes, mapping user journeys for scholars, donors, and field coordinators.",
-        icon: "🎨"
+        description: "Create high-fidelity wireframes, mapping user journeys for scholars, donors, and field coordinators."
       },
       {
         slug: "graphic-design",
         title: "Graphic Design",
-        description: "Illustrate worksheets templates, develop social campaign visuals, and draft official credential layouts.",
-        icon: "📐"
+        description: "Illustrate worksheets templates, develop social campaign visuals, and draft official credential layouts."
       },
       {
         slug: "content-writing",
         title: "Content Writing",
-        description: "Publish detailed event retrospectives, draft donor newsletters, and write compelling impact stories.",
-        icon: "✍️"
+        description: "Publish detailed event retrospectives, draft donor newsletters, and write compelling impact stories."
       },
       {
         slug: "data-analysis",
         title: "Data Analysis",
-        description: "Compile demographic data sheets, analyze field checkup results, and calculate program success metrics.",
-        icon: "📊"
+        description: "Compile demographic data sheets, analyze field checkup results, and calculate program success metrics."
       },
       {
         slug: "community-outreach",
         title: "Community Outreach",
-        description: "Manage regional learning drives, coordinate local center logistics, and lead hygiene awareness drives.",
-        icon: "📢"
+        description: "Manage regional learning drives, coordinate local center logistics, and lead hygiene awareness drives."
       },
       {
         slug: "operations",
         title: "Operations & HR",
-        description: "Track onboarding flows, coordinate mentor-intern sync schedules, and organize project milestones.",
-        icon: "⚙️"
+        description: "Track onboarding flows, coordinate mentor-intern sync schedules, and organize project milestones."
       },
       {
         slug: "marketing",
         title: "Campaign Marketing",
-        description: "Plan social outreach calendars, coordinate press releases, and grow digital presence across channels.",
-        icon: "🚀"
+        description: "Plan social outreach calendars, coordinate press releases, and grow digital presence across channels."
       },
       {
         slug: "research",
         title: "Social Research",
-        description: "Conduct community survey analysis, benchmark local welfare schemes eligibility, and research education methods.",
-        icon: "🔍"
+        description: "Conduct community survey analysis, benchmark local welfare schemes eligibility, and research education methods."
       }
     ];
 
     const cards = domains.map(dom => {
+      const iconSvg = getDomainIcon(dom.slug, "w-8 h-8");
       return `
-        <a href="#/internships/domain/${dom.slug}" class="bg-white border border-stone-200/80 rounded-xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-left stagger-load revealed">
+        <a href="/internships/domain/${dom.slug}" class="bg-white border border-stone-200/80 rounded-xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between text-left stagger-load revealed focus:outline-none focus:ring-2 focus:ring-pink-ruby">
           <div>
-            <span class="text-3xl block mb-4">${dom.icon}</span>
+            <span class="block mb-4" aria-hidden="true">${iconSvg}</span>
             <h3 class="font-display font-semibold text-[18px] text-text-dark mb-2">
               ${dom.title}
             </h3>

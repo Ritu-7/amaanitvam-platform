@@ -19,10 +19,10 @@ export default class VolunteerHero {
             Amaanitvam is a student-led foundation channeling grassroots energy to uplift underserved communities. We don't just ask for helpers; we invite partners in growth.
           </p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#opportunities-list" class="w-full sm:w-auto inline-flex items-center justify-center font-interface font-semibold text-[12px] uppercase tracking-widest px-8 py-4 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 transition-all duration-300 shadow-lg">
+            <a href="#" id="btn-hero-explore" class="w-full sm:w-auto inline-flex items-center justify-center font-interface font-semibold text-[12px] uppercase tracking-widest px-8 py-4 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 transition-all duration-300 shadow-lg">
               Explore Opportunities
             </a>
-            <a href="#/volunteer/dashboard" class="w-full sm:w-auto inline-flex items-center justify-center font-interface font-semibold text-[12px] uppercase tracking-widest px-8 py-4 rounded border border-white/20 text-white hover:bg-white/10 transition-all duration-300">
+            <a href="/volunteer/dashboard" id="access-dashboard-cta" class="w-full sm:w-auto inline-flex items-center justify-center font-interface font-semibold text-[12px] uppercase tracking-widest px-8 py-4 rounded border border-white/20 text-white hover:bg-white/10 transition-all duration-300">
               Access Dashboard
             </a>
           </div>

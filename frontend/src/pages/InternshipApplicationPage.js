@@ -14,12 +14,12 @@ export default class InternshipApplicationPage {
       <div class="flex flex-col min-h-screen bg-stone-50 select-none">
         ${this.navbar.render()}
 
-        <main class="flex-grow py-12 px-6">
+        <main class="flex-grow pt-32 md:pt-36 pb-12 px-6">
           <div class="max-w-4xl mx-auto">
             
             <!-- Breadcrumbs -->
             <div class="text-left font-interface text-[11px] uppercase tracking-widest text-text-light mb-6">
-              <a href="#/internships" class="hover:text-pink-ruby">Internships</a> / <span class="text-text-dark">Apply</span>
+              <a href="/internships" class="hover:text-pink-ruby">Internships</a> / <span class="text-text-dark">Apply</span>
             </div>
 
             <!-- Renders Form Component -->

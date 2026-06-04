@@ -36,11 +36,11 @@ export default class VolunteerPortal {
           <!-- Why Amaanitvam Section -->
           ${this.whyAmaanitvam.render()}
 
-          <!-- Why Volunteers Matter Section -->
-          ${this.whyVolunteersMatter.render()}
-
           <!-- Opportunities Section -->
           ${this.opportunities.render()}
+
+          <!-- CTA Application Form -->
+          ${this.cta.render()}
 
           <!-- Volunteer Journey Section -->
           ${this.journey.render()}
@@ -48,8 +48,8 @@ export default class VolunteerPortal {
           <!-- Benefits Section -->
           ${this.benefits.render()}
 
-          <!-- CTA Application Form -->
-          ${this.cta.render()}
+          <!-- Why Volunteers Matter Section -->
+          ${this.whyVolunteersMatter.render()}
         </main>
 
         <!-- Footer -->
@@ -80,6 +80,26 @@ export default class VolunteerPortal {
     VolunteerCTA.init();
     Footer.init();
 
+    // Explore Opportunities smooth scroll
+    const exploreBtn = document.getElementById('btn-hero-explore');
+    if (exploreBtn) {
+      exploreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const openings = document.getElementById('opportunities-list');
+        if (openings) {
+          openings.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+
+    // Auto-login trigger when clicking Access Dashboard link
+    const accessDashboardBtn = document.getElementById('access-dashboard-cta');
+    if (accessDashboardBtn) {
+      accessDashboardBtn.addEventListener('click', () => {
+        localStorage.setItem('amaanitvam_volunteer_logged_in', 'true');
+      });
+    }
+
     // Floating Auth toggle handler
     const authBtn = document.getElementById('btn-toggle-auth-portal');
     if (authBtn) {
@@ -90,7 +110,8 @@ export default class VolunteerPortal {
           window.location.reload();
         } else {
           localStorage.setItem('amaanitvam_volunteer_logged_in', 'true');
-          window.location.hash = '#/volunteer/dashboard';
+          window.history.pushState(null, '', '/volunteer/dashboard');
+          window.dispatchEvent(new Event('popstate'));
         }
       });
     }

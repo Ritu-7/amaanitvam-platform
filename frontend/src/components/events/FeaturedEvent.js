@@ -68,7 +68,7 @@ export default class FeaturedEvent {
                 <span class="font-interface text-[12px] uppercase tracking-widest text-stone-400">
                   Date: <span class="text-white font-semibold">${featured.date}</span>
                 </span>
-                <a href="#/events/view/${featured.slug}" class="font-interface font-semibold text-[11px] uppercase tracking-widest px-6 py-3 rounded bg-gold-satin text-text-dark hover:bg-gold-satin/90 shadow transition-colors">
+                <a href="/events/view/${featured.slug}" class="font-interface font-semibold text-[11px] uppercase tracking-widest px-6 py-3 rounded bg-gold-satin text-text-dark hover:bg-gold-satin/90 shadow transition-colors">
                   Join Initiative
                 </a>
               </div>

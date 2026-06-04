@@ -81,7 +81,7 @@ export default class OpportunityManager {
             </div>
 
             <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
-              <a href="#/admin/internships" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-4 py-2.5 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
+              <a href="/admin/internships" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-4 py-2.5 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
                 Cancel
               </a>
               <button type="submit" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
@@ -173,7 +173,7 @@ export default class OpportunityManager {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         alert('Verification: Internship Opportunity successfully saved as Draft in mock database.');
-        window.location.hash = '#/admin/internships';
+        window.navigateSPA('/admin/internships');
       });
     }
   }

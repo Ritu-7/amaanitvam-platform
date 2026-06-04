@@ -7,7 +7,6 @@ import CoreValues from '../components/CoreValues.js';
 import ImpactProcess from '../components/ImpactProcess.js';
 import ImpactSnapshot from '../components/ImpactSnapshot.js';
 import NextChapter from '../components/NextChapter.js';
-import JoinJourney from '../components/JoinJourney.js';
 import Footer from '../components/Footer.js';
 
 export default class AboutPage {
@@ -21,7 +20,6 @@ export default class AboutPage {
     this.impactProcess = new ImpactProcess();
     this.impactSnapshot = new ImpactSnapshot();
     this.nextChapter = new NextChapter();
-    this.joinJourney = new JoinJourney();
     this.footer = new Footer();
   }
 
@@ -57,9 +55,6 @@ export default class AboutPage {
           
           <!-- Forward vision momentum: The Next Chapter -->
           ${this.nextChapter.render()}
-          
-          <!-- Wide sunrise field invitation covered CTA card -->
-          ${this.joinJourney.render()}
           
         </main>
         

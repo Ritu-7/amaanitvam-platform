@@ -35,7 +35,7 @@ export default class CertificateGeneratorPage {
                 </h1>
               </div>
               <div>
-                <a href="#/admin/certificates" class="inline-flex items-center justify-center font-interface font-semibold text-[10px] uppercase tracking-widest px-5 py-2.5 rounded border border-white/20 text-stone-300 hover:text-white hover:bg-white/10 transition-colors">
+                <a href="/admin/certificates" class="inline-flex items-center justify-center font-interface font-semibold text-[10px] uppercase tracking-widest px-5 py-2.5 rounded border border-white/20 text-stone-300 hover:text-white hover:bg-white/10 transition-colors">
                   Back to Inventory
                 </a>
               </div>

@@ -62,7 +62,7 @@ export default class ApplicationsPipeline {
             </div>
             
             <div class="flex items-center justify-between pt-2 border-t border-stone-100 mt-2">
-              <a href="#/admin/internships/applicant/${app.id}" class="font-interface font-bold text-[9px] uppercase tracking-widest text-pink-ruby hover:text-pink-ruby/80">
+              <a href="/admin/internships/applicant/${app.id}" class="font-interface font-bold text-[9px] uppercase tracking-widest text-pink-ruby hover:text-pink-ruby/80">
                 Evaluate →
               </a>
               <select class="stage-jump-select font-interface text-[9.5px] text-text-light border-0 bg-transparent py-0.5 focus:outline-none cursor-pointer" data-id="${app.id}">

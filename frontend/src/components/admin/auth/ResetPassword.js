@@ -26,7 +26,7 @@ export default class ResetPassword {
         </form>
 
         <div class="pt-4 border-t border-stone-100 text-center text-[12px]">
-          <a href="#/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline">← Cancel & Back to Login</a>
+          <a href="/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline">← Cancel & Back to Login</a>
         </div>
       </div>
     `;
@@ -56,7 +56,7 @@ export default class ResetPassword {
             <p class="text-[13.5px] text-text-muted leading-relaxed font-light">
               Your security password credentials have been successfully updated.
             </p>
-            <a href="#/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline block pt-2">Login to Console</a>
+            <a href="/admin/login" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:underline block pt-2">Login to Console</a>
           </div>
         `;
       });

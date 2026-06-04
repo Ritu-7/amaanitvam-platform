@@ -69,7 +69,7 @@ export default class ContactForm {
 
           <div class="pt-3 border-t border-stone-100 flex items-center justify-between flex-wrap gap-4">
             <div class="text-[12px] text-text-light font-sans font-light">
-              Need assistance with donations? <a href="#/donate" class="text-pink-ruby hover:underline font-semibold font-interface">Contact Accounts Support →</a>
+              Need assistance with donations? <a href="/donate" class="text-pink-ruby hover:underline font-semibold font-interface">Contact Accounts Support →</a>
             </div>
             
             <button type="submit" class="font-interface font-bold text-[10px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
@@ -172,7 +172,7 @@ export default class ContactForm {
             <div class="pt-4 border-t border-stone-100 max-w-sm mx-auto flex items-center justify-center gap-4 text-[12px] font-interface">
               <button onclick="window.location.reload()" class="font-bold text-pink-ruby hover:underline">Log Another Request</button>
               <span class="text-stone-300">|</span>
-              <a href="#/" class="font-bold text-text-light hover:text-text-dark hover:underline">Return Home</a>
+              <a href="/" class="font-bold text-text-light hover:text-text-dark hover:underline">Return Home</a>
             </div>
           </div>
         `;

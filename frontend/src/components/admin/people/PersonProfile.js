@@ -14,7 +14,7 @@ export default class PersonProfile {
       return `
         <div class="py-12 text-center text-text-light font-sans bg-white border border-stone-200 rounded-xl shadow-sm">
           <p class="text-base font-semibold">User profile not found</p>
-          <a href="#/admin/people" class="text-pink-ruby hover:underline mt-2 inline-block">&larr; Back to Directory</a>
+          <a href="/admin/people" class="text-pink-ruby hover:underline mt-2 inline-block">&larr; Back to Directory</a>
         </div>
       `;
     }
@@ -91,7 +91,7 @@ export default class PersonProfile {
       <div class="space-y-6 select-none text-left scroll-reveal revealed">
         <!-- Breadcrumb & Back -->
         <div>
-          <a href="#/admin/people" class="font-interface font-bold text-[11px] uppercase tracking-wider text-pink-ruby hover:underline flex items-center gap-1">
+          <a href="/admin/people" class="font-interface font-bold text-[11px] uppercase tracking-wider text-pink-ruby hover:underline flex items-center gap-1">
             &larr; Back to Directory
           </a>
         </div>
@@ -161,7 +161,7 @@ export default class PersonProfile {
                           <strong class="font-semibold text-text-dark">${proj.name}</strong>
                           <span class="block text-[10.5px] text-text-light mt-0.5">Status: ${proj.status}</span>
                         </div>
-                        <a href="#/admin/projects" class="text-pink-ruby hover:underline font-bold text-[10px] uppercase font-interface">Manage</a>
+                        <a href="/admin/projects" class="text-pink-ruby hover:underline font-bold text-[10px] uppercase font-interface">Manage</a>
                       </div>
                     `).join("") || `
                       <span class="block text-[12px] text-text-light italic font-sans">No projects assigned.</span>
@@ -186,7 +186,7 @@ export default class PersonProfile {
                               Approve
                             </button>
                           ` : `
-                            <a href="#/admin/certificates" class="text-pink-ruby hover:underline font-bold text-[10px] uppercase font-interface">View</a>
+                            <a href="/admin/certificates" class="text-pink-ruby hover:underline font-bold text-[10px] uppercase font-interface">View</a>
                           `}
                         </div>
                       `;

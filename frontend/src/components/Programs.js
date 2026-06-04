@@ -1,7 +1,7 @@
 export default class Programs {
   render() {
     return `
-      <section id="programs" class="relative py-28 bg-white overflow-hidden z-20">
+      <section id="programs" class="relative py-36 bg-white overflow-hidden z-20">
         <!-- Thin background vertical thread connector -->
         <div class="absolute top-0 left-1/2 w-px h-full bg-stone-200/40 -translate-x-1/2 pointer-events-none z-0"></div>
 
@@ -9,10 +9,10 @@ export default class Programs {
           
           <div class="max-w-2xl text-left mb-20 scroll-reveal">
             <span class="font-interface font-semibold text-[11px] uppercase tracking-widest text-pink-ruby">Our Progression</span>
-            <h2 class="font-display font-semibold text-3xl md:text-4xl text-text-dark mt-2 tracking-tight">
+            <h2 class="type-section-heading mt-2">
               Chapters of Action
             </h2>
-            <p class="font-sans text-[15px] text-text-muted mt-3 font-light max-w-xl">
+            <p class="type-section-description mt-3">
               We translate empathy into systematic channels of civic progress. Each program represents a progressive chapter in our shared story of support.
             </p>
           </div>
@@ -31,9 +31,9 @@ export default class Programs {
                 <span class="font-interface font-bold text-xs uppercase tracking-widest text-stone-400 group-hover:text-pink-ruby transition-colors duration-300">Learn</span>
               </div>
               
-              <h3 class="font-interface font-bold text-base uppercase tracking-wider text-text-dark mb-4 group-hover:text-pink-ruby transition-colors duration-300">Project Manthan</h3>
+              <h3 class="type-h3 text-text-dark mb-4 group-hover:text-pink-ruby transition-colors duration-300">Project Manthan</h3>
               
-              <p class="font-sans text-[13.5px] text-text-muted leading-relaxed mb-8 font-light flex-grow">
+              <p class="type-card-content mb-8 flex-grow">
                 Providing educational support, awareness, and mentorship to help underprivileged children build brighter futures through learning. This is our foundation, supporting 60+ children with active learning classes and mentor networks.
               </p>
               
@@ -51,9 +51,9 @@ export default class Programs {
                 <span class="font-interface font-bold text-xs uppercase tracking-widest text-stone-400 group-hover:text-gold-ochre transition-colors duration-300">Grow</span>
               </div>
               
-              <h3 class="font-interface font-bold text-base uppercase tracking-wider text-text-dark mb-4 group-hover:text-gold-ochre transition-colors duration-300">Project Shiksha</h3>
+              <h3 class="type-h3 text-text-dark mb-4 group-hover:text-gold-ochre transition-colors duration-300">Project Shiksha</h3>
               
-              <p class="font-sans text-[13.5px] text-text-muted leading-relaxed mb-8 font-light flex-grow">
+              <p class="type-card-content mb-8 flex-grow">
                 Expanding access to quality learning opportunities and empowering young minds through education and guidance. Built on the belief that education is a powerful tool, we inspire curiosity and access for 45+ children.
               </p>
               
@@ -71,9 +71,9 @@ export default class Programs {
                 <span class="font-interface font-bold text-xs uppercase tracking-widest text-stone-400 group-hover:text-pink-ruby transition-colors duration-300">Act</span>
               </div>
               
-              <h3 class="font-interface font-bold text-base uppercase tracking-wider text-text-dark mb-4 group-hover:text-pink-ruby transition-colors duration-300">Project Pravah</h3>
+              <h3 class="type-h3 text-text-dark mb-4 group-hover:text-pink-ruby transition-colors duration-300">Project Pravah</h3>
               
-              <p class="font-sans text-[13.5px] text-text-muted leading-relaxed mb-8 font-light flex-grow">
+              <p class="type-card-content mb-8 flex-grow">
                 Reaching communities through awareness, engagement, and social development initiatives that encourage positive change. We expand outreach to 23+ young lives to foster civic responsibility and community action.
               </p>
               
@@ -90,3 +90,4 @@ export default class Programs {
     `;
   }
 }
+

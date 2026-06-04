@@ -49,7 +49,7 @@ export default class UpcomingEvents {
                 ${seatsBadge} <span class="text-stone-400">/ ${evt.capacity} total</span>
               </div>
               <div class="flex gap-2">
-                <a href="#/events/view/${evt.slug}" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-4 py-2 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
+                <a href="/events/view/${evt.slug}" class="font-interface font-semibold text-[10px] uppercase tracking-widest px-4 py-2 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
                   Details
                 </a>
               </div>

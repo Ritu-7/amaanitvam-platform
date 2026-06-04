@@ -10,8 +10,8 @@ export default class InternshipOpportunityPage {
   }
 
   render() {
-    const hash = window.location.hash;
-    const parts = hash.split('/');
+    const path = window.location.pathname;
+    const parts = path.split('/');
     const slug = parts[parts.length - 1];
 
     const opp = internshipOpportunities.find(o => o.slug === slug) || internshipOpportunities[0];
@@ -23,13 +23,13 @@ export default class InternshipOpportunityPage {
       <div class="flex flex-col min-h-screen bg-stone-50 select-none">
         ${this.navbar.render()}
 
-        <main class="flex-grow py-12 px-6">
+        <main class="flex-grow pt-32 md:pt-36 pb-12 px-6">
           <div class="max-w-4xl mx-auto space-y-10">
             
             <!-- Breadcrumbs -->
             <div class="text-left font-interface text-[11px] uppercase tracking-widest text-text-light">
-              <a href="#/internships" class="hover:text-pink-ruby">Internships</a> / 
-              <a href="#/internships/domain/${opp.domain.toLowerCase().replace(' ', '-')}" class="hover:text-pink-ruby">${opp.domain}</a> / 
+              <a href="/internships" class="hover:text-pink-ruby">Internships</a> / 
+              <a href="/internships/domain/${opp.domain.toLowerCase().replace(' ', '-')}" class="hover:text-pink-ruby">${opp.domain}</a> / 
               <span class="text-text-dark">${opp.title}</span>
             </div>
 
@@ -148,8 +148,8 @@ export default class InternshipOpportunityPage {
     const applyBtn = document.getElementById('btn-apply-cta');
     if (applyBtn) {
       applyBtn.addEventListener('click', () => {
-        const hash = window.location.hash;
-        const parts = hash.split('/');
+        const path = window.location.pathname;
+        const parts = path.split('/');
         const slug = parts[parts.length - 1];
         const opp = internshipOpportunities.find(o => o.slug === slug) || internshipOpportunities[0];
         
@@ -157,7 +157,8 @@ export default class InternshipOpportunityPage {
         localStorage.setItem('selected_internship_opportunity_id', opp.id);
         
         // Redirect to application form
-        window.location.hash = '#/internships/apply';
+        window.history.pushState(null, '', '/internships/apply');
+        window.dispatchEvent(new Event('popstate'));
       });
     }
   }

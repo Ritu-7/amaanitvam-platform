@@ -16,19 +16,19 @@ export default class EventTable {
       let actionButtons = '';
       if (evt.status === 'Completed') {
         actionButtons = `
-          <a href="#/admin/events/report?eventId=${evt.id}" class="inline-block text-[9.5px] font-interface font-semibold uppercase tracking-widest px-2.5 py-1 rounded border border-pink-ruby text-pink-ruby hover:bg-pink-blush transition-colors">
+          <a href="/admin/events/report?eventId=${evt.id}" class="inline-block text-[9.5px] font-interface font-semibold uppercase tracking-widest px-2.5 py-1 rounded border border-pink-ruby text-pink-ruby hover:bg-pink-blush transition-colors">
             Publish Report
           </a>
-          <a href="#/admin/events?attendance=${evt.id}" class="inline-block text-[9.5px] font-interface font-semibold uppercase tracking-widest px-2.5 py-1 rounded border border-stone-300 text-stone-600 hover:bg-stone-50 transition-colors">
+          <a href="/admin/events?attendance=${evt.id}" class="inline-block text-[9.5px] font-interface font-semibold uppercase tracking-widest px-2.5 py-1 rounded border border-stone-300 text-stone-600 hover:bg-stone-50 transition-colors">
             Attendance
           </a>
         `;
       } else if (evt.status !== 'Draft' && evt.status !== 'Cancelled') {
         actionButtons = `
-          <a href="#/admin/events?manage=${evt.id}" class="inline-block text-[9.5px] font-interface font-semibold uppercase tracking-widest px-2.5 py-1 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 transition-all shadow-sm">
+          <a href="/admin/events?manage=${evt.id}" class="inline-block text-[9.5px] font-interface font-semibold uppercase tracking-widest px-2.5 py-1 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 transition-all shadow-sm">
             Roster
           </a>
-          <a href="#/admin/events?attendance=${evt.id}" class="inline-block text-[9.5px] font-interface font-semibold uppercase tracking-widest px-2.5 py-1 rounded border border-stone-300 text-stone-600 hover:bg-stone-50 transition-colors">
+          <a href="/admin/events?attendance=${evt.id}" class="inline-block text-[9.5px] font-interface font-semibold uppercase tracking-widest px-2.5 py-1 rounded border border-stone-300 text-stone-600 hover:bg-stone-50 transition-colors">
             Check-In
           </a>
         `;

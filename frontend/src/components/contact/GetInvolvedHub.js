@@ -5,21 +5,21 @@ export default class GetInvolvedHub {
         title: "Volunteer",
         desc: "Dedicate your time and skills to support field education or platform engineering.",
         cta: "Join Roster",
-        link: "#/volunteer",
+        link: "/volunteer",
         color: "border-pink-medium bg-pink-blush/30 hover:border-pink-ruby"
       },
       {
         title: "Apply for Internships",
         desc: "Join a structured cohort and acquire real-world project skills with active mentorship.",
         cta: "Explore Roles",
-        link: "#/internships",
+        link: "/internships",
         color: "border-stone-200/80 bg-white hover:border-pink-ruby"
       },
       {
         title: "Attend Campaigns",
         desc: "Participate in local center awareness drives, education summits, or hygiene audits.",
         cta: "Browse Events",
-        link: "#/events",
+        link: "/events",
         color: "border-gold-light bg-gold-light/20 hover:border-gold-ochre"
       },
       {
@@ -33,7 +33,7 @@ export default class GetInvolvedHub {
         title: "Support Financially",
         desc: "Directly fund learning kits, hygiene materials, or digital classroom infrastructure.",
         cta: "Donate Support",
-        link: "#/donate",
+        link: "/donate",
         color: "border-pink-medium bg-pink-blush/40 hover:border-pink-ruby"
       }
     ];

@@ -1,5 +1,21 @@
+import { impactGallery } from '../../content/impactGallery.js';
+
 export default class JourneyGallery {
   render() {
+    const cards = impactGallery.map(card => `
+      <div class="break-inside-avoid bg-white p-4 border border-stone-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card inline-block w-full text-left" data-category="${card.category}">
+        <div class="overflow-hidden rounded-xl bg-stone-100">
+          <img src="${card.image}" alt="${card.alt}" class="w-full rounded-xl object-cover hover:scale-101 transition-transform duration-500">
+        </div>
+        <div class="mt-4 px-1">
+          <span class="font-interface text-[9px] uppercase font-bold ${card.tagColorClass} tracking-wider">${card.tag}</span>
+          <p class="font-sans text-[16px] text-text-muted mt-2 font-light leading-[1.7]">
+            ${card.description}
+          </p>
+        </div>
+      </div>
+    `).join('');
+
     return `
       <section id="journey-gallery" class="relative py-32 bg-stone-50/50 overflow-hidden border-t border-b border-stone-200/20 z-20 select-none">
         
@@ -29,72 +45,7 @@ export default class JourneyGallery {
 
           <!-- Pinterest Style Masonry Grid (Images occupy ~60% of card height visually) -->
           <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 max-w-5xl mx-auto" id="gallery-grid">
-            
-            <!-- Card 1: Learning -->
-            <div class="break-inside-avoid bg-white p-4 border border-stone-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card inline-block w-full text-left" data-category="learning">
-              <div class="overflow-hidden rounded-xl bg-stone-100">
-                <img src="/classroom-child.jpg" alt="Active learning class session" class="w-full rounded-xl object-cover hover:scale-101 transition-transform duration-500">
-              </div>
-              <div class="mt-4 px-1">
-                <span class="font-interface text-[9px] uppercase font-bold text-pink-ruby tracking-wider">Learning Sessions</span>
-                <p class="font-sans text-[16px] text-text-muted mt-2 font-light leading-[1.7]">
-                  Active learning classes promoting academic support and inclusive learning.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 2: Community -->
-            <div class="break-inside-avoid bg-white p-4 border border-stone-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card inline-block w-full text-left" data-category="community">
-              <div class="overflow-hidden rounded-xl bg-stone-100">
-                <img src="/field-children.jpg" alt="Outreach campaign" class="w-full rounded-xl object-cover hover:scale-101 transition-transform duration-500">
-              </div>
-              <div class="mt-4 px-1">
-                <span class="font-interface text-[9px] uppercase font-bold text-amber-600 tracking-wider">Community Outreach</span>
-                <p class="font-sans text-[16px] text-text-muted mt-2 font-light leading-[1.7]">
-                  Field campaigns extending essential support and outreach to local families.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 3: Awareness -->
-            <div class="break-inside-avoid bg-white p-4 border border-stone-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card inline-block w-full text-left" data-category="awareness">
-              <div class="overflow-hidden rounded-xl bg-stone-100">
-                <img src="/landscape-child.jpg" alt="Child looking towards hills" class="w-full rounded-xl object-cover hover:scale-101 transition-transform duration-500">
-              </div>
-              <div class="mt-4 px-1">
-                <span class="font-interface text-[9px] uppercase font-bold text-pink-ruby tracking-wider">Awareness Activities</span>
-                <p class="font-sans text-[16px] text-text-muted mt-2 font-light leading-[1.7]">
-                  Social and academic awareness seminars encouraging children to learn.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 4: Volunteers -->
-            <div class="break-inside-avoid bg-white p-4 border border-stone-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card inline-block w-full text-left" data-category="volunteers">
-              <div class="overflow-hidden rounded-xl bg-stone-100">
-                <img src="/classroom-child.jpg" alt="Student mentor in session" class="w-full rounded-xl object-cover hover:scale-101 transition-transform duration-500">
-              </div>
-              <div class="mt-4 px-1">
-                <span class="font-interface text-[9px] uppercase font-bold text-amber-600 tracking-wider">Volunteer Engagement</span>
-                <p class="font-sans text-[16px] text-text-muted mt-2 font-light leading-[1.7]">
-                  Student-led mentor support matching volunteers to direct regional programs.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 5: Community -->
-            <div class="break-inside-avoid bg-white p-4 border border-stone-200/60 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 gallery-card inline-block w-full text-left" data-category="community">
-              <div class="overflow-hidden rounded-xl bg-stone-100">
-                <img src="/field-children.jpg" alt="Outreach events" class="w-full rounded-xl object-cover hover:scale-101 transition-transform duration-500">
-              </div>
-              <div class="mt-4 px-1">
-                <span class="font-interface text-[9px] uppercase font-bold text-pink-ruby tracking-wider">Foundation Events</span>
-                <p class="font-sans text-[16px] text-text-muted mt-2 font-light leading-[1.7]">
-                  Collaborative events promoting civic responsibility and active participation.
-                </p>
-              </div>
-            </div>
-
+            ${cards}
           </div>
 
         </div>

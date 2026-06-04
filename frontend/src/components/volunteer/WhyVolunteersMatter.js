@@ -7,7 +7,7 @@ export default class WhyVolunteersMatter {
             Our Shared Mission
           </span>
           <h2 class="font-display font-semibold text-3xl sm:text-4xl md:text-[42px] leading-[1.2] mb-8 text-text-dark">
-            Volunteering as a Catalyst for Agency
+            Why Volunteers Matter
           </h2>
           <div class="space-y-6 font-sans text-[18px] md:text-[20px] leading-[1.8] text-text-muted text-left md:text-justify max-w-3xl mx-auto">
             <p>

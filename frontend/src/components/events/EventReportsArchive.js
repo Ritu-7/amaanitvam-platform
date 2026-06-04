@@ -1,4 +1,4 @@
-import { eventReports } from '../../mocks/eventReports.js';
+import { eventReports } from '../../content/eventReports.js';
 
 export default class EventReportsArchive {
   render() {
@@ -36,7 +36,7 @@ export default class EventReportsArchive {
             <div class="font-sans text-text-light font-light">
               <strong class="font-semibold text-text-dark">${rep.metrics?.participants || 0}</strong> Attendees
             </div>
-            <a href="#/events/${rep.slug}" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:text-pink-ruby/80 transition-colors flex items-center gap-1">
+            <a href="/events/${rep.slug}" class="font-interface font-bold text-[10px] uppercase tracking-widest text-pink-ruby hover:text-pink-ruby/80 transition-colors flex items-center gap-1">
               Read Report 
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
             </a>

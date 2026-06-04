@@ -35,7 +35,7 @@ export default class ApplicationForm {
       .join('');
 
     // Pre-populate opportunityId if passed in URL query
-    const urlParams = new URLSearchParams(window.location.hash.includes('?') ? window.location.hash.substring(window.location.hash.indexOf('?')) : '');
+    const urlParams = new URLSearchParams(window.location.search);
     const preopp = urlParams.get('opportunityId');
     if (preopp && !this.state.formData.fullName && !this.state.formData.email) {
       const selectedOpp = internshipOpportunities.find(o => o.id === preopp);
@@ -64,7 +64,7 @@ export default class ApplicationForm {
             </div>
             <div class="flex justify-between items-center py-1.5">
               <span class="text-text-light text-[12px] font-interface uppercase tracking-wider">Track Status URL</span>
-              <a href="#/internships/status" class="text-pink-ruby hover:underline font-mono text-[13px] font-semibold">#/internships/status</a>
+              <a href="/internships/status" class="text-pink-ruby hover:underline font-mono text-[13px] font-semibold">/internships/status</a>
             </div>
           </div>
 
@@ -73,10 +73,10 @@ export default class ApplicationForm {
           </p>
 
           <div class="pt-4 flex gap-4 justify-center">
-            <a href="#/internships/status?appId=${this.state.submittedId}" class="font-interface font-semibold text-[10.5px] uppercase tracking-widest px-5 py-3 bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
+            <a href="/internships/status?appId=${this.state.submittedId}" class="font-interface font-semibold text-[10.5px] uppercase tracking-widest px-5 py-3 bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors focus:outline-none focus:ring-2 focus:ring-pink-ruby">
               Track Status Now
             </a>
-            <a href="#/internships" class="font-interface font-semibold text-[10.5px] uppercase tracking-widest px-5 py-3 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
+            <a href="/internships" class="font-interface font-semibold text-[10.5px] uppercase tracking-widest px-5 py-3 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-ruby">
               Exit Board
             </a>
           </div>
@@ -198,10 +198,10 @@ export default class ApplicationForm {
           </div>
 
           <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
-            <a href="#/internships" class="font-interface font-semibold text-[10.5px] uppercase tracking-widest px-4 py-2.5 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors">
+            <a href="/internships" class="font-interface font-semibold text-[10.5px] uppercase tracking-widest px-4 py-2.5 border border-stone-200 rounded text-text-dark hover:bg-stone-50 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-ruby">
               Cancel
             </a>
-            <button type="submit" class="font-interface font-semibold text-[10.5px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
+            <button type="submit" class="font-interface font-semibold text-[10.5px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors focus:outline-none focus:ring-2 focus:ring-pink-ruby">
               Proceed to Review
             </button>
           </div>

@@ -5,7 +5,7 @@ import EventReportMetrics from '../components/events/report/EventReportMetrics.j
 import EventReportGallery from '../components/events/report/EventReportGallery.js';
 import EventReportOutcomes from '../components/events/report/EventReportOutcomes.js';
 import Footer from '../components/Footer.js';
-import { eventReports } from '../mocks/eventReports.js';
+import { eventReports } from '../content/eventReports.js';
 
 export default class EventReportPage {
   constructor() {
@@ -19,8 +19,8 @@ export default class EventReportPage {
   }
 
   render() {
-    const hash = window.location.hash;
-    const parts = hash.split('/');
+    const path = window.location.pathname;
+    const parts = path.split('/');
     const slug = parts[parts.length - 1]; // E.g. community-awareness-workshop
 
     const report = eventReports.find(r => r.slug === slug);
@@ -32,7 +32,7 @@ export default class EventReportPage {
           <main class="flex-grow pt-32 text-center py-20">
             <h2 class="font-display font-semibold text-2xl text-stone-900 mb-2">Report Not Found</h2>
             <p class="font-sans text-text-muted mb-6">The requested campaign report does not match any items in the archive.</p>
-            <a href="#/events" class="font-interface font-semibold text-[11px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
+            <a href="/events" class="font-interface font-semibold text-[11px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
               Return to Events Board
             </a>
           </main>

@@ -57,7 +57,7 @@ export default class DashboardHero {
         // Clear mock auth state
         localStorage.setItem('amaanitvam_volunteer_logged_in', 'false');
         // Redirect to public volunteer page
-        window.location.hash = '#/volunteer';
+        window.navigateSPA('/volunteer');
       });
     }
   }

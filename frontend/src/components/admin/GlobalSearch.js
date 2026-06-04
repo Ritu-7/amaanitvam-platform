@@ -10,11 +10,11 @@ export default class GlobalSearch {
   }
 
   render() {
-    // Parse query parameter from URL hash (e.g. #/admin/search?q=Arjun)
-    const hash = window.location.hash || "";
-    const queryIndex = hash.indexOf('?q=');
-    if (queryIndex !== -1) {
-      this.searchQuery = decodeURIComponent(hash.substring(queryIndex + 3));
+    // Parse query parameter from URL search (e.g. /admin/search?q=Arjun)
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q');
+    if (query) {
+      this.searchQuery = query;
     }
 
     const q = this.searchQuery.toLowerCase().trim();
@@ -98,11 +98,11 @@ export default class GlobalSearch {
                 ${peopleMatches.map(p => `
                   <div class="py-3 flex justify-between items-center text-[12.5px] font-sans">
                     <div>
-                      <a href="#/admin/people/${p.id}" class="font-bold text-text-dark hover:text-pink-ruby hover:underline">${p.name}</a>
+                      <a href="/admin/people/${p.id}" class="font-bold text-text-dark hover:text-pink-ruby hover:underline">${p.name}</a>
                       <span class="ml-2 text-[10.5px] text-text-light italic">(${p.type} &bull; ${p.status})</span>
                       <p class="text-[11px] text-text-light mt-0.5">${p.roleTitle || "No Active Role"} &bull; ${p.email}</p>
                     </div>
-                    <a href="#/admin/people/${p.id}" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">360 View</a>
+                    <a href="/admin/people/${p.id}" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">360 View</a>
                   </div>
                 `).join("")}
               </div>
@@ -121,7 +121,7 @@ export default class GlobalSearch {
                       <span class="ml-2 px-1.5 py-0.5 rounded text-[9.5px] border bg-emerald-50 text-emerald-800 border-emerald-100">${proj.status}</span>
                       <p class="text-[11.5px] text-text-light mt-0.5">${proj.description}</p>
                     </div>
-                    <a href="#/admin/projects" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">Manage</a>
+                    <a href="/admin/projects" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">Manage</a>
                   </div>
                 `).join("")}
               </div>
@@ -140,7 +140,7 @@ export default class GlobalSearch {
                       <span class="ml-2 px-1.5 py-0.5 rounded text-[9.5px] border bg-pink-blush text-pink-ruby border-pink-quartz/40">${c.status}</span>
                       <p class="text-[11px] text-text-light mt-0.5">${c.type} &bull; Date: ${c.issueDate || "Pending"}</p>
                     </div>
-                    <a href="#/admin/certificates" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">Certificates</a>
+                    <a href="/admin/certificates" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">Certificates</a>
                   </div>
                 `).join("")}
               </div>
@@ -159,7 +159,7 @@ export default class GlobalSearch {
                       <span class="ml-2 text-[10px] text-pink-ruby font-bold">(${inq.status} &bull; SLA: ${inq.slaStatus})</span>
                       <p class="text-[11px] text-text-muted mt-0.5 italic">"${inq.message.substring(0, 100)}..."</p>
                     </div>
-                    <a href="#/admin/inquiries" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">Tickets</a>
+                    <a href="/admin/inquiries" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">Tickets</a>
                   </div>
                 `).join("")}
               </div>
@@ -178,7 +178,7 @@ export default class GlobalSearch {
                       <span class="ml-2 text-[10px] text-emerald-700">(${d.status})</span>
                       <p class="text-[11px] text-text-light mt-0.5">Intent: ${d.intent} &bull; Method: ${d.method} &bull; Date: ${d.date}</p>
                     </div>
-                    <a href="#/admin/donations" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">Treasury</a>
+                    <a href="/admin/donations" class="text-[11px] font-bold uppercase tracking-wider text-pink-ruby hover:underline font-interface">Treasury</a>
                   </div>
                 `).join("")}
               </div>
@@ -231,7 +231,7 @@ export default class GlobalSearch {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const val = input.value.trim();
-        window.location.hash = `#/admin/search?q=${encodeURIComponent(val)}`;
+        window.navigateSPA(`/admin/search?q=${encodeURIComponent(val)}`);
       });
     }
   }

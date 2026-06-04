@@ -38,7 +38,7 @@ export default class RecentActivityFeed {
           <h4 class="font-display font-semibold text-lg text-text-dark text-left">
             Traceability Audit Feed
           </h4>
-          <a href="#/admin/audit-logs" class="font-interface font-bold text-[10.5px] uppercase tracking-wider text-pink-ruby hover:underline">
+          <a href="/admin/audit-logs" class="font-interface font-bold text-[10.5px] uppercase tracking-wider text-pink-ruby hover:underline">
             View All Log Entries &rarr;
           </a>
         </div>

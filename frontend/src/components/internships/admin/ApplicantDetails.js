@@ -15,7 +15,7 @@ export default class ApplicantDetails {
       return `
         <div class="bg-white border border-stone-200 rounded-xl p-8 text-center max-w-xl mx-auto shadow-sm">
           <p class="font-sans text-[15px] text-text-muted">Application profile not found.</p>
-          <a href="#/admin/internships" class="inline-block mt-4 font-interface font-bold text-[11px] uppercase tracking-widest text-pink-ruby">Back to Dashboard</a>
+          <a href="/admin/internships" class="inline-block mt-4 font-interface font-bold text-[11px] uppercase tracking-widest text-pink-ruby">Back to Dashboard</a>
         </div>
       `;
     }
@@ -86,7 +86,7 @@ export default class ApplicantDetails {
             </div>
             
             <div class="flex flex-col sm:flex-row gap-2">
-              <a href="#/admin/internships" class="font-interface font-bold text-[10px] uppercase tracking-widest px-4 py-2.5 border border-stone-200 rounded text-center text-text-dark hover:bg-stone-50 transition-colors">
+              <a href="/admin/internships" class="font-interface font-bold text-[10px] uppercase tracking-widest px-4 py-2.5 border border-stone-200 rounded text-center text-text-dark hover:bg-stone-50 transition-colors">
                 ← Back
               </a>
               <button id="btn-review-resume" class="font-interface font-bold text-[10px] uppercase tracking-widest px-4 py-2.5 rounded ${applicant.resumeReviewed ? 'bg-stone-100 text-stone-500 cursor-default border border-stone-200' : 'bg-gold-light text-gold-ochre border border-gold-satin/50 hover:bg-gold-light/95'} transition-colors">

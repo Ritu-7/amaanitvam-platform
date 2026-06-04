@@ -12,9 +12,7 @@ export default class AdminCertificateDetailPage {
 
   render() {
     // Parse query ID from hash string e.g. #/admin/certificates/view?id=1
-    const hash = window.location.hash;
-    const searchPart = hash.includes('?') ? hash.substring(hash.indexOf('?')) : '';
-    const urlParams = new URLSearchParams(searchPart);
+    const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
 
     // Find record
@@ -27,7 +25,7 @@ export default class AdminCertificateDetailPage {
           <main class="flex-grow pt-32 text-center py-20">
             <h2 class="font-display font-semibold text-2xl text-stone-900 mb-2">Record Not Found</h2>
             <p class="font-sans text-text-muted mb-6">The requested credential id does not match any items in inventory.</p>
-            <a href="#/admin/certificates" class="font-interface font-semibold text-[11px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
+            <a href="/admin/certificates" class="font-interface font-semibold text-[11px] uppercase tracking-widest px-6 py-2.5 rounded bg-pink-ruby text-white hover:bg-pink-ruby/90 shadow transition-colors">
               Return to Inventory
             </a>
           </main>
@@ -60,7 +58,7 @@ export default class AdminCertificateDetailPage {
                 </h1>
               </div>
               <div>
-                <a href="#/admin/certificates" class="inline-flex items-center justify-center font-interface font-semibold text-[10px] uppercase tracking-widest px-5 py-2.5 rounded border border-white/20 text-stone-300 hover:text-white hover:bg-white/10 transition-colors">
+                <a href="/admin/certificates" class="inline-flex items-center justify-center font-interface font-semibold text-[10px] uppercase tracking-widest px-5 py-2.5 rounded border border-white/20 text-stone-300 hover:text-white hover:bg-white/10 transition-colors">
                   Return to Inventory
                 </a>
               </div>
@@ -142,10 +140,7 @@ export default class AdminCertificateDetailPage {
     Navbar.init();
     Footer.init();
 
-    // Parse query ID from hash string
-    const hash = window.location.hash;
-    const searchPart = hash.includes('?') ? hash.substring(hash.indexOf('?')) : '';
-    const urlParams = new URLSearchParams(searchPart);
+    const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
 
     const cert = certificates.find(c => c.id === id || String(c.id) === String(id));
