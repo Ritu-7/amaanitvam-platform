@@ -22,6 +22,7 @@ graph TD
     Root --> Arch[Architecture]
     Root --> Front[Frontend]
     Root --> Deploy[Deployment]
+    Root --> Handover[docs/handover/final-technical-handover.md]
     
     Arch --> PO[platform-overview.md]
     Arch --> FA[frontend-architecture.md]
@@ -72,3 +73,6 @@ graph TD
 
 ### Setup & Deployments
 * **[Deployment & Startup Guide](file:///d:/Desktop/Amaanitvam-Internship/amaanitvam-platform/docs/deployment/deployment-guide.md)**: Local start commands, build variables, production bundling, and deployment checklists.
+
+### Handovers & Status Reports
+* **[Final Technical Handover](file:///d:/Desktop/Amaanitvam-Internship/amaanitvam-platform/docs/handover/final-technical-handover.md)**: Authoritative technical onboarding reference for new technical leads, detail mapping project state, stack parameters, and database schemas.
