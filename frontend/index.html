@@ -67,6 +67,47 @@
       padding: 3rem; text-align: center;
     }
   </style>
+  <style>
+    /* Floating Donate CTA */
+    .floating-donate {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 1000;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold, #d4af37);
+      color: #1a2238;
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      line-height: 1;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .floating-donate:hover,
+    .floating-donate:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+      color: #1a2238;
+    }
+    .floating-donate .material-symbols-outlined {
+      font-size: 1.2rem;
+    }
+    @media (max-width: 540px) {
+      .floating-donate {
+        padding: 0.85rem;
+        border-radius: 50%;
+      }
+      .floating-donate-text {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body data-page="home">
 
@@ -89,6 +130,9 @@
 
       <!-- NAV LINKS — Center-right -->
       <div class="nav-links" id="nav-links" role="navigation">
+
+        <!-- HOME -->
+        <a href="index.html" class="nav-link">Home</a>
 
         <!-- ABOUT US ▼ -->
         <div class="nav-item has-dropdown">
@@ -130,39 +174,6 @@
           </div>
         </div>
 
-        <!-- OUR WORK ▼ -->
-        <div class="nav-item has-dropdown">
-          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Our Work
-            <span class="nav-chevron" aria-hidden="true">
-              <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </button>
-          <div class="dropdown-menu" role="menu">
-            <a href="programs.html" class="dropdown-item" role="menuitem">
-              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">school</span></span>
-              <span class="dropdown-text">
-                <strong>Programs</strong>
-                <small>Education &amp; skill programs</small>
-              </span>
-            </a>
-            <a href="programs.html#initiatives" class="dropdown-item" role="menuitem">
-              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">campaign</span></span>
-              <span class="dropdown-text">
-                <strong>Initiatives</strong>
-                <small>Manthan, Shiksha, Pravah</small>
-              </span>
-            </a>
-            <a href="impact.html#reports" class="dropdown-item" role="menuitem">
-              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">description</span></span>
-              <span class="dropdown-text">
-                <strong>Impact Reports</strong>
-                <small>Transparency &amp; data</small>
-              </span>
-            </a>
-          </div>
-        </div>
-
         <!-- GET INVOLVED ▼ -->
         <div class="nav-item has-dropdown">
           <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">
@@ -199,7 +210,7 @@
         <!-- RESOURCE CENTER ▼ -->
         <div class="nav-item has-dropdown">
           <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            Resource Centre
+            Resources
             <span class="nav-chevron" aria-hidden="true">
               <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
@@ -231,13 +242,8 @@
 
       </div><!-- /nav-links -->
 
-      <!-- DONATE — Far right -->
+      <!-- NAV ACTIONS — Far right -->
       <div class="nav-actions">
-        <a href="contact.html#donate" class="nav-donate-btn" aria-label="Donate to Amaanitvam Foundation">
-          <span class="material-symbols-outlined" aria-hidden="true" style="font-size:1rem;">favorite</span>
-          Donate
-        </a>
-
         <!-- Mobile hamburger -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
           <span class="hamburger-bar"></span>
@@ -253,6 +259,8 @@
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-menu-inner">
 
+      <a href="index.html" class="mobile-link" style="padding:1rem 0.25rem;font-weight:600;display:block;">Home</a>
+
       <div class="mobile-section">
         <button class="mobile-group-toggle" aria-expanded="false">
           About Us <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
@@ -262,17 +270,6 @@
           <a href="impact.html" class="mobile-link">Impact</a>
           <a href="events.html" class="mobile-link">Events</a>
           <a href="gallery.html" class="mobile-link">Gallery</a>
-        </div>
-      </div>
-
-      <div class="mobile-section">
-        <button class="mobile-group-toggle" aria-expanded="false">
-          Our Work <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
-        </button>
-        <div class="mobile-group-links">
-          <a href="programs.html" class="mobile-link">Programs</a>
-          <a href="programs.html#initiatives" class="mobile-link">Initiatives</a>
-          <a href="impact.html#reports" class="mobile-link">Impact Reports</a>
         </div>
       </div>
 
@@ -289,20 +286,13 @@
 
       <div class="mobile-section">
         <button class="mobile-group-toggle" aria-expanded="false">
-          Resource Centre <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          Resources <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
         </button>
         <div class="mobile-group-links">
           <a href="updates.html" class="mobile-link">Circulars &amp; Updates</a>
           <a href="contact.html#faq" class="mobile-link">FAQ</a>
           <a href="verify.html" class="mobile-link">Verify Certificate</a>
         </div>
-      </div>
-
-      <div class="mobile-donate-wrap">
-        <a href="contact.html#donate" class="nav-donate-btn" style="width:100%;justify-content:center;">
-          <span class="material-symbols-outlined" aria-hidden="true" style="font-size:1rem;">favorite</span>
-          Donate Now
-        </a>
       </div>
 
     </div>
@@ -455,7 +445,12 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+    <!-- Floating Donate CTA -->
+  <a href="contact.html#donate" class="floating-donate" aria-label="Donate to Amaanitvam Foundation">
+    <span class="material-symbols-outlined" aria-hidden="true">volunteer_activism</span>
+    <span class="floating-donate-text">Donate</span>
+  </a>
+<script src="js/main.js"></script>
   <script>
     /* ── Navbar JS ─────────────────────────────────────────────────────────── */
     (function () {
