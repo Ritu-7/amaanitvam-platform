@@ -5,48 +5,289 @@
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const currentPage = document.body.dataset.page || '';
+  const navLinks = document.getElementById('nav-links');
+  const hasGroupedNavbar = !!document.querySelector('.nav-item.has-dropdown');
+  const needsNavbarUpgrade = !!nav && !!navLinks && !!mobileMenu && !hasGroupedNavbar;
 
-  /* Active nav link */
-  document.querySelectorAll('[data-nav]').forEach(function (link) {
-    if (link.dataset.nav === currentPage) {
-      link.classList.add('is-active');
-      link.setAttribute('aria-current', 'page');
-    }
-  });
+  const pageMap = {
+    about: 0,
+    impact: 0,
+    events: 0,
+    gallery: 0,
+    programs: 1,
+    volunteer: 2,
+    internship: 2,
+    contact: 2,
+    resources: 3,
+    updates: 3,
+    verify: 3,
+    faq: 3,
+    circulars: 3
+  };
 
-  /* Navbar scroll behavior */
-  function updateNav() {
-    if (!nav) return;
-    const hero = document.querySelector('[data-hero]');
-    const scrolled = window.scrollY > 40;
-    const hasHero = hero && hero.getBoundingClientRect().bottom > 80;
+  if (needsNavbarUpgrade) {
+    navLinks.innerHTML = [
+      '<div class="nav-item has-dropdown">',
+      '  <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">',
+      '    About Us',
+      '    <span class="nav-chevron" aria-hidden="true">',
+      '      <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '    </span>',
+      '  </button>',
+      '  <div class="dropdown-menu" role="menu">',
+      '    <a href="about.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">info</span></span>',
+      '      <span class="dropdown-text"><strong>About Foundation</strong><small>Our story &amp; values</small></span>',
+      '    </a>',
+      '    <a href="impact.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">bar_chart</span></span>',
+      '      <span class="dropdown-text"><strong>Impact</strong><small>What we\'ve achieved</small></span>',
+      '    </a>',
+      '    <a href="events.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">event</span></span>',
+      '      <span class="dropdown-text"><strong>Events</strong><small>Upcoming &amp; past events</small></span>',
+      '    </a>',
+      '    <a href="gallery.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">photo_library</span></span>',
+      '      <span class="dropdown-text"><strong>Gallery</strong><small>Photos &amp; moments</small></span>',
+      '    </a>',
+      '  </div>',
+      '</div>',
+      '<div class="nav-item has-dropdown">',
+      '  <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">',
+      '    Our Work',
+      '    <span class="nav-chevron" aria-hidden="true">',
+      '      <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '    </span>',
+      '  </button>',
+      '  <div class="dropdown-menu" role="menu">',
+      '    <a href="programs.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">school</span></span>',
+      '      <span class="dropdown-text"><strong>Programs</strong><small>Education &amp; skill programs</small></span>',
+      '    </a>',
+      '    <a href="programs.html#initiatives" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">campaign</span></span>',
+      '      <span class="dropdown-text"><strong>Initiatives</strong><small>Manthan, Shiksha, Pravah</small></span>',
+      '    </a>',
+      '    <a href="impact.html#reports" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">description</span></span>',
+      '      <span class="dropdown-text"><strong>Impact Reports</strong><small>Transparency &amp; data</small></span>',
+      '    </a>',
+      '  </div>',
+      '</div>',
+      '<div class="nav-item has-dropdown">',
+      '  <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">',
+      '    Get Involved',
+      '    <span class="nav-chevron" aria-hidden="true">',
+      '      <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '    </span>',
+      '  </button>',
+      '  <div class="dropdown-menu" role="menu">',
+      '    <a href="volunteer.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">volunteer_activism</span></span>',
+      '      <span class="dropdown-text"><strong>Volunteer</strong><small>Join our volunteer network</small></span>',
+      '    </a>',
+      '    <a href="internship.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">work</span></span>',
+      '      <span class="dropdown-text"><strong>Internship</strong><small>Apply for internship</small></span>',
+      '    </a>',
+      '    <a href="contact.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">mail</span></span>',
+      '      <span class="dropdown-text"><strong>Contact Us</strong><small>Get in touch</small></span>',
+      '    </a>',
+      '  </div>',
+      '</div>',
+      '<div class="nav-item has-dropdown">',
+      '  <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">',
+      '    Resource Centre',
+      '    <span class="nav-chevron" aria-hidden="true">',
+      '      <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '    </span>',
+      '  </button>',
+      '  <div class="dropdown-menu" role="menu">',
+      '    <a href="updates.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">newspaper</span></span>',
+      '      <span class="dropdown-text"><strong>Circulars &amp; Updates</strong><small>Latest news &amp; notices</small></span>',
+      '    </a>',
+      '    <a href="contact.html#faq" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">help</span></span>',
+      '      <span class="dropdown-text"><strong>FAQ</strong><small>Common questions answered</small></span>',
+      '    </a>',
+      '    <a href="verify.html" class="dropdown-item" role="menuitem">',
+      '      <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">verified</span></span>',
+      '      <span class="dropdown-text"><strong>Verify Certificate</strong><small>Check your certificate</small></span>',
+      '    </a>',
+      '  </div>',
+      '</div>'
+    ].join('');
 
-    if (hasHero && !scrolled) {
-      nav.classList.add('is-transparent');
-      nav.classList.remove('is-solid');
-    } else {
-      nav.classList.remove('is-transparent');
-      nav.classList.add('is-solid');
-    }
+    mobileMenu.innerHTML = [
+      '<div class="mobile-menu-inner">',
+      '  <div class="mobile-section">',
+      '    <button class="mobile-group-toggle" aria-expanded="false">',
+      '      About Us <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>',
+      '    </button>',
+      '    <div class="mobile-group-links">',
+      '      <a href="about.html" class="mobile-link">About Foundation</a>',
+      '      <a href="impact.html" class="mobile-link">Impact</a>',
+      '      <a href="events.html" class="mobile-link">Events</a>',
+      '      <a href="gallery.html" class="mobile-link">Gallery</a>',
+      '    </div>',
+      '  </div>',
+      '  <div class="mobile-section">',
+      '    <button class="mobile-group-toggle" aria-expanded="false">',
+      '      Our Work <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>',
+      '    </button>',
+      '    <div class="mobile-group-links">',
+      '      <a href="programs.html" class="mobile-link">Programs</a>',
+      '      <a href="programs.html#initiatives" class="mobile-link">Initiatives</a>',
+      '      <a href="impact.html#reports" class="mobile-link">Impact Reports</a>',
+      '    </div>',
+      '  </div>',
+      '  <div class="mobile-section">',
+      '    <button class="mobile-group-toggle" aria-expanded="false">',
+      '      Get Involved <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>',
+      '    </button>',
+      '    <div class="mobile-group-links">',
+      '      <a href="volunteer.html" class="mobile-link">Volunteer</a>',
+      '      <a href="internship.html" class="mobile-link">Internship</a>',
+      '      <a href="contact.html" class="mobile-link">Contact Us</a>',
+      '    </div>',
+      '  </div>',
+      '  <div class="mobile-section">',
+      '    <button class="mobile-group-toggle" aria-expanded="false">',
+      '      Resource Centre <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>',
+      '    </button>',
+      '    <div class="mobile-group-links">',
+      '      <a href="updates.html" class="mobile-link">Circulars &amp; Updates</a>',
+      '      <a href="contact.html#faq" class="mobile-link">FAQ</a>',
+      '      <a href="verify.html" class="mobile-link">Verify Certificate</a>',
+      '    </div>',
+      '  </div>',
+      '  <div class="mobile-donate-wrap">',
+      '    <a href="contact.html#donate" class="nav-donate-btn" style="width:100%;justify-content:center;">',
+      '      <span class="material-symbols-outlined" aria-hidden="true" style="font-size:1rem;">favorite</span>',
+      '      Donate Now',
+      '    </a>',
+      '  </div>',
+      '</div>'
+    ].join('');
   }
 
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
-
-  /* Mobile menu */
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', function () {
-      const open = mobileMenu.classList.toggle('is-open');
-      menuToggle.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
+  /* Navbar logic for grouped nav markup, including pages that still need upgrading. */
+  if (hasGroupedNavbar || needsNavbarUpgrade) {
+    document.querySelectorAll('[data-nav]').forEach(function (link) {
+      if (link.dataset.nav === currentPage) {
+        link.classList.add('is-active');
+        link.setAttribute('aria-current', 'page');
+      }
     });
 
-    mobileMenu.querySelectorAll('.nav-link').forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileMenu.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+    if (currentPage && pageMap[currentPage] !== undefined) {
+      const triggers = document.querySelectorAll('.nav-link.dropdown-trigger');
+      const activeTrigger = triggers[pageMap[currentPage]];
+
+      if (activeTrigger) {
+        activeTrigger.classList.add('is-active');
+      }
+    }
+
+    function updateNav() {
+      if (!nav) return;
+      const hero = document.querySelector('[data-hero]');
+      const scrolled = window.scrollY > 40;
+      const hasHero = hero && hero.getBoundingClientRect().bottom > 80;
+
+      if (hasHero && !scrolled) {
+        nav.classList.add('is-transparent');
+        nav.classList.remove('is-solid');
+      } else {
+        nav.classList.remove('is-transparent');
+        nav.classList.add('is-solid');
+      }
+    }
+
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function () {
+        const open = mobileMenu.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', open);
+        menuToggle.classList.toggle('is-active', open);
+        mobileMenu.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
       });
+
+      mobileMenu.querySelectorAll('.mobile-group-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const section = btn.closest('.mobile-section');
+          const links = section ? section.querySelector('.mobile-group-links') : null;
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+          mobileMenu.querySelectorAll('.mobile-section').forEach(function (item) {
+            const toggle = item.querySelector('.mobile-group-toggle');
+            const panel = item.querySelector('.mobile-group-links');
+
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            if (panel) panel.classList.remove('is-open');
+          });
+
+          if (!isExpanded && links) {
+            btn.setAttribute('aria-expanded', 'true');
+            links.classList.add('is-open');
+          }
+        });
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.remove('is-open');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.classList.remove('is-active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    document.querySelectorAll('.nav-item.has-dropdown').forEach(function (item) {
+      const trigger = item.querySelector('.dropdown-trigger');
+      const menu = item.querySelector('.dropdown-menu');
+
+      if (!trigger || !menu) return;
+
+      function openMenu() {
+        trigger.setAttribute('aria-expanded', 'true');
+        menu.classList.add('is-open');
+      }
+
+      function closeMenu() {
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('is-open');
+      }
+
+      item.addEventListener('mouseenter', openMenu);
+      item.addEventListener('mouseleave', closeMenu);
+
+      trigger.addEventListener('click', function () {
+        trigger.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+      });
+
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-item.has-dropdown')) {
+        document.querySelectorAll('.dropdown-trigger').forEach(function (trigger) {
+          trigger.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('.dropdown-menu').forEach(function (menu) {
+          menu.classList.remove('is-open');
+        });
+      }
     });
   }
 
