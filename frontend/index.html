@@ -66,41 +66,248 @@
       color: #fff; border-radius: var(--radius-lg);
       padding: 3rem; text-align: center;
     }
-    .site-nav.is-transparent .brand-name,
-    .site-nav.is-transparent .brand-sub { color: #fff; }
-    .site-nav.is-transparent .nav-link { color: rgba(255,255,255,0.85); }
-    .site-nav.is-transparent .nav-link:hover,
-    .site-nav.is-transparent .nav-link.is-active { color: #fff; }
-    .site-nav.is-transparent .menu-toggle { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #fff; }
   </style>
 </head>
 <body data-page="home">
 
-<nav id="site-nav" class="site-nav editorial-nav" aria-label="Main navigation">
-  <div class="nav-inner">
+<!-- ═══════════════════════════════════════════════════════
+     NAVBAR — Smile Foundation–inspired premium NGO nav
+     ═══════════════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
 
-    <a href="index.html" class="brand">
-    <img
-      src="assets/images/logo.png"
-      alt="Amaanitvam Foundation"
-      class="brand-logo">
+      <!-- LOGO — Left -->
+      <a href="index.html" class="brand" aria-label="Amaanitvam Foundation home">
+    <img src="assets/images/logo.png" alt="Amaanitvam Foundation" class="brand-logo">
+
+    <div class="brand-text">
+        <span class="brand-name">AMAANITVAM</span>
+        <span class="brand-subtitle">FOUNDATION</span>
+    </div>
 </a>
 
-    <div class="nav-links">
-      <a href="about.html" class="nav-link"> OUR STORY</a>
-      <a href="impact.html" class="nav-link">IMPACT REPORTS</a>
-      <a href="programs.html" class="nav-link">INITIATIVES</a>
-      <a href="volunteer.html" class="nav-link">GET INVOLVED</a>
-    </div>
+      <!-- NAV LINKS — Center-right -->
+      <div class="nav-links" id="nav-links" role="navigation">
 
-    <div class="nav-actions">
-      <a href="contact.html#donate" class="donate-link">
-        DONATE
-      </a>
-    </div>
+        <!-- ABOUT US ▼ -->
+        <div class="nav-item has-dropdown">
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            About Us
+            <span class="nav-chevron" aria-hidden="true">
+              <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="about.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">info</span></span>
+              <span class="dropdown-text">
+                <strong>About Foundation</strong>
+                <small>Our story &amp; values</small>
+              </span>
+            </a>
+            <a href="impact.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">bar_chart</span></span>
+              <span class="dropdown-text">
+                <strong>Impact</strong>
+                <small>What we've achieved</small>
+              </span>
+            </a>
+            <a href="events.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">event</span></span>
+              <span class="dropdown-text">
+                <strong>Events</strong>
+                <small>Upcoming &amp; past events</small>
+              </span>
+            </a>
+            <a href="gallery.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">photo_library</span></span>
+              <span class="dropdown-text">
+                <strong>Gallery</strong>
+                <small>Photos &amp; moments</small>
+              </span>
+            </a>
+          </div>
+        </div>
 
+        <!-- OUR WORK ▼ -->
+        <div class="nav-item has-dropdown">
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Our Work
+            <span class="nav-chevron" aria-hidden="true">
+              <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="programs.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">school</span></span>
+              <span class="dropdown-text">
+                <strong>Programs</strong>
+                <small>Education &amp; skill programs</small>
+              </span>
+            </a>
+            <a href="programs.html#initiatives" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">campaign</span></span>
+              <span class="dropdown-text">
+                <strong>Initiatives</strong>
+                <small>Manthan, Shiksha, Pravah</small>
+              </span>
+            </a>
+            <a href="impact.html#reports" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">description</span></span>
+              <span class="dropdown-text">
+                <strong>Impact Reports</strong>
+                <small>Transparency &amp; data</small>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- GET INVOLVED ▼ -->
+        <div class="nav-item has-dropdown">
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Get Involved
+            <span class="nav-chevron" aria-hidden="true">
+              <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="volunteer.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">volunteer_activism</span></span>
+              <span class="dropdown-text">
+                <strong>Volunteer</strong>
+                <small>Join our volunteer network</small>
+              </span>
+            </a>
+            <a href="internship.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">work</span></span>
+              <span class="dropdown-text">
+                <strong>Internship</strong>
+                <small>Apply for internship</small>
+              </span>
+            </a>
+            <a href="contact.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">mail</span></span>
+              <span class="dropdown-text">
+                <strong>Contact Us</strong>
+                <small>Get in touch</small>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- RESOURCE CENTER ▼ -->
+        <div class="nav-item has-dropdown">
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Resource Centre
+            <span class="nav-chevron" aria-hidden="true">
+              <svg width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a href="updates.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">newspaper</span></span>
+              <span class="dropdown-text">
+                <strong>Circulars &amp; Updates</strong>
+                <small>Latest news &amp; notices</small>
+              </span>
+            </a>
+            <a href="contact.html#faq" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">help</span></span>
+              <span class="dropdown-text">
+                <strong>FAQ</strong>
+                <small>Common questions answered</small>
+              </span>
+            </a>
+            <a href="verify.html" class="dropdown-item" role="menuitem">
+              <span class="dropdown-icon"><span class="material-symbols-outlined" aria-hidden="true">verified</span></span>
+              <span class="dropdown-text">
+                <strong>Verify Certificate</strong>
+                <small>Check your certificate</small>
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /nav-links -->
+
+      <!-- DONATE — Far right -->
+      <div class="nav-actions">
+        <a href="contact.html#donate" class="nav-donate-btn" aria-label="Donate to Amaanitvam Foundation">
+          <span class="material-symbols-outlined" aria-hidden="true" style="font-size:1rem;">favorite</span>
+          Donate
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+
+    </div><!-- /nav-inner -->
+  </nav>
+
+  <!-- ── Mobile Menu ── -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+
+      <div class="mobile-section">
+        <button class="mobile-group-toggle" aria-expanded="false">
+          About Us <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="mobile-group-links">
+          <a href="about.html" class="mobile-link">About Foundation</a>
+          <a href="impact.html" class="mobile-link">Impact</a>
+          <a href="events.html" class="mobile-link">Events</a>
+          <a href="gallery.html" class="mobile-link">Gallery</a>
+        </div>
+      </div>
+
+      <div class="mobile-section">
+        <button class="mobile-group-toggle" aria-expanded="false">
+          Our Work <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="mobile-group-links">
+          <a href="programs.html" class="mobile-link">Programs</a>
+          <a href="programs.html#initiatives" class="mobile-link">Initiatives</a>
+          <a href="impact.html#reports" class="mobile-link">Impact Reports</a>
+        </div>
+      </div>
+
+      <div class="mobile-section">
+        <button class="mobile-group-toggle" aria-expanded="false">
+          Get Involved <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="mobile-group-links">
+          <a href="volunteer.html" class="mobile-link">Volunteer</a>
+          <a href="internship.html" class="mobile-link">Internship</a>
+          <a href="contact.html" class="mobile-link">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="mobile-section">
+        <button class="mobile-group-toggle" aria-expanded="false">
+          Resource Centre <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="mobile-group-links">
+          <a href="updates.html" class="mobile-link">Circulars &amp; Updates</a>
+          <a href="contact.html#faq" class="mobile-link">FAQ</a>
+          <a href="verify.html" class="mobile-link">Verify Certificate</a>
+        </div>
+      </div>
+
+      <div class="mobile-donate-wrap">
+        <a href="contact.html#donate" class="nav-donate-btn" style="width:100%;justify-content:center;">
+          <span class="material-symbols-outlined" aria-hidden="true" style="font-size:1rem;">favorite</span>
+          Donate Now
+        </a>
+      </div>
+
+    </div>
   </div>
-</nav>
+</header>
 
   <main id="main-content">
 
@@ -117,7 +324,6 @@
           </h1>
           <p class="hero-desc">
              Empowering Lives Through Education, Compassion, and Collective Action. <br> A student-led movement inspiring learning, responsibility, and positive change for a stronger society.
-
           </p>
           <div class="hero-actions">
             <a href="volunteer.html" class="btn btn-primary">Volunteer Now <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
@@ -130,58 +336,41 @@
         </div>
       </div>
     </section>
+
     <section class="section section-white" aria-labelledby="why-us-title">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Why Us?</span>
-      <h2 id="why-us-title" class="section-title">Creating Meaningful Impact Together</h2>
-      <p class="section-desc">
-        We focus on education, empowerment, and community-driven change to build a stronger future.
-      </p>
-    </div>
-
-
-<div class="grid-3">
-  <div class="card">
-    <span class="material-symbols-outlined text-primary" style="font-size:2rem;">school</span>
-    <h3>Education First</h3>
-    <p class="text-muted">
-      Supporting learning opportunities that help individuals unlock their potential.
-    </p>
-  </div>
-
-  <div class="card">
-    <span class="material-symbols-outlined text-purple" style="font-size:2rem;">volunteer_activism</span>
-    <h3>Community Impact</h3>
-    <p class="text-muted">
-      Building stronger communities through collaboration, service, and social responsibility.
-    </p>
-  </div>
-
-  <div class="card">
-    <span class="material-symbols-outlined text-gold" style="font-size:2rem;">trending_up</span>
-    <h3>Sustainable Growth</h3>
-    <p class="text-muted">
-      Creating long-term positive change through skill development and empowerment.
-    </p>
-  </div>
-</div>
-
-
-  </div>
-</section>
-
-
-    
-    
-
-    
-
-    
-
-    
-
-    
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Why Us?</span>
+          <h2 id="why-us-title" class="section-title">Creating Meaningful Impact Together</h2>
+          <p class="section-desc">
+            We focus on education, empowerment, and community-driven change to build a stronger future.
+          </p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <span class="material-symbols-outlined text-primary" style="font-size:2rem;">school</span>
+            <h3>Education First</h3>
+            <p class="text-muted">
+              Supporting learning opportunities that help individuals unlock their potential.
+            </p>
+          </div>
+          <div class="card">
+            <span class="material-symbols-outlined text-purple" style="font-size:2rem;">volunteer_activism</span>
+            <h3>Community Impact</h3>
+            <p class="text-muted">
+              Building stronger communities through collaboration, service, and social responsibility.
+            </p>
+          </div>
+          <div class="card">
+            <span class="material-symbols-outlined text-gold" style="font-size:2rem;">trending_up</span>
+            <h3>Sustainable Growth</h3>
+            <p class="text-muted">
+              Creating long-term positive change through skill development and empowerment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Donation CTA -->
     <section class="section section-alt" aria-labelledby="donate-title">
@@ -200,8 +389,6 @@
         </div>
       </div>
     </section>
-
-    
 
   </main>
 
@@ -268,7 +455,95 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script> 
-  
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Navbar JS ─────────────────────────────────────────────────────────── */
+    (function () {
+      const nav        = document.getElementById('site-nav');
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      /* Scroll: frosted glass after 60px */
+      function onScroll() {
+        nav.classList.toggle('is-solid', window.scrollY > 60);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* Active nav highlight — reads data-page on <body>
+         Index mapping: 0=About Us, 1=Our Work, 2=Get Involved, 3=Resource Centre */
+      var pageMap = {
+        about:      0, impact:    0, events:  0, gallery: 0,
+        programs:   1,
+        volunteer:  2, internship:2, contact: 2,
+        updates:    3, verify:    3
+      };
+      var page = document.body.dataset.page;
+      if (page && pageMap[page] !== undefined) {
+        var triggers = document.querySelectorAll('.nav-link.dropdown-trigger');
+        if (triggers[pageMap[page]]) {
+          triggers[pageMap[page]].classList.add('is-active');
+        }
+      }
+
+      /* Desktop dropdowns — hover + keyboard */
+      document.querySelectorAll('.nav-item.has-dropdown').forEach(function (item) {
+        var trigger = item.querySelector('.dropdown-trigger');
+        var menu    = item.querySelector('.dropdown-menu');
+
+        function open()  { trigger.setAttribute('aria-expanded', 'true');  menu.classList.add('is-open'); }
+        function close() { trigger.setAttribute('aria-expanded', 'false'); menu.classList.remove('is-open'); }
+
+        item.addEventListener('mouseenter', open);
+        item.addEventListener('mouseleave', close);
+        trigger.addEventListener('click', function () {
+          trigger.getAttribute('aria-expanded') === 'true' ? close() : open();
+        });
+        trigger.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+      });
+
+      /* Mobile hamburger */
+      menuToggle.addEventListener('click', function () {
+        var isOpen = mobileMenu.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+        mobileMenu.setAttribute('aria-hidden', !isOpen);
+        menuToggle.classList.toggle('is-active', isOpen);
+      });
+
+      /* Mobile accordion */
+      document.querySelectorAll('.mobile-group-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var section    = btn.closest('.mobile-section');
+          var links      = section.querySelector('.mobile-group-links');
+          var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+          /* Close all first */
+          document.querySelectorAll('.mobile-section').forEach(function (s) {
+            s.querySelector('.mobile-group-toggle').setAttribute('aria-expanded', 'false');
+            s.querySelector('.mobile-group-links').classList.remove('is-open');
+          });
+
+          if (!isExpanded) {
+            btn.setAttribute('aria-expanded', 'true');
+            links.classList.add('is-open');
+          }
+        });
+      });
+
+      /* Close dropdowns on outside click */
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.nav-item.has-dropdown')) {
+          document.querySelectorAll('.dropdown-trigger').forEach(function (t) {
+            t.setAttribute('aria-expanded', 'false');
+          });
+          document.querySelectorAll('.dropdown-menu').forEach(function (m) {
+            m.classList.remove('is-open');
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
