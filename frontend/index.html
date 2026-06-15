@@ -16,23 +16,22 @@
       min-height: 92vh;
       display: flex; align-items: center;
       padding-top: var(--nav-h);
-      background: linear-gradient(135deg, var(--navy) 0%, #2d3748 50%, rgba(108,99,255,0.25) 100%);
+      background: linear-gradient(135deg, rgba(107, 62, 71, 0.85) 0%, rgba(122, 74, 84, 0.8) 50%, rgba(155, 107, 123, 0.75) 100%),
+                  url('assets/images/hero.png') center / cover no-repeat;
       color: #fff;
       position: relative; overflow: hidden;
     }
     .home-hero::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(233,30,99,0.15) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 70% 50%, rgba(201, 163, 163, 0.12) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; position: relative; z-index: 1; }
-    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } }
     .hero-img-wrap {
-      border-radius: 20px; overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      aspect-ratio: 4/3;
+      display: none;
     }
-    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-img-wrap img { display: none; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.5rem 1rem; border-radius: 999px;
@@ -62,50 +61,9 @@
     .update-card { text-decoration: none; color: inherit; display: block; }
     .update-card img { width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
     .donate-section {
-      background: linear-gradient(135deg, var(--navy), #374151);
+      background: linear-gradient(135deg, var(--primary), #7a4a54);
       color: #fff; border-radius: var(--radius-lg);
       padding: 3rem; text-align: center;
-    }
-  </style>
-  <style>
-    /* Floating Donate CTA */
-    .floating-donate {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 1000;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--gold, #d4af37);
-      color: #1a2238;
-      padding: 0.9rem 1.6rem;
-      border-radius: 999px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      line-height: 1;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .floating-donate:hover,
-    .floating-donate:focus-visible {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
-      color: #1a2238;
-    }
-    .floating-donate .material-symbols-outlined {
-      font-size: 1.2rem;
-    }
-    @media (max-width: 540px) {
-      .floating-donate {
-        padding: 0.85rem;
-        border-radius: 50%;
-      }
-      .floating-donate-text {
-        display: none;
-      }
     }
   </style>
 </head>
@@ -316,13 +274,10 @@
              Empowering Lives Through Education, Compassion, and Collective Action. <br> A student-led movement inspiring learning, responsibility, and positive change for a stronger society.
           </p>
           <div class="hero-actions">
+            <a href="contact.html#donate" class="btn btn-donate-hero">Donate Now <span class="material-symbols-outlined" aria-hidden="true">favorite</span></a>
             <a href="volunteer.html" class="btn btn-primary">Volunteer Now <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
             <a href="internship.html" class="btn btn-secondary">Apply for Internship</a>
-            <a href="verify.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;">Verify Certificate</a>
           </div>
-        </div>
-        <div class="hero-img-wrap">
-          <img src="assets/images/hero.png" alt="Diverse volunteers and students collaborating in a community program">
         </div>
       </div>
     </section>
@@ -439,12 +394,7 @@
     </div>
   </footer>
 
-    <!-- Floating Donate CTA -->
-  <a href="contact.html#donate" class="floating-donate" aria-label="Donate to Amaanitvam Foundation">
-    <span class="material-symbols-outlined" aria-hidden="true">volunteer_activism</span>
-    <span class="floating-donate-text">Donate</span>
-  </a>
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
   <script>
     /* ── Navbar JS ─────────────────────────────────────────────────────────── */
     (function () {
