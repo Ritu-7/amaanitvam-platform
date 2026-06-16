@@ -271,6 +271,7 @@
   /* Contact form */
   const contactForm = document.getElementById('contactForm');
   const contactStatus = document.getElementById('contact-status');
+  const whatsappInviteUrl = 'https://chat.whatsapp.com/DhebPGMO2JILFfja86gybF';
 
   if (contactForm) {
     contactForm.addEventListener('submit', async function (e) {
@@ -282,7 +283,7 @@
       const apiUrl = contactForm.dataset.apiUrl || 'http://localhost:5000/api/contact';
 
       if (contactStatus) {
-        contactStatus.textContent = 'Sending your message...';
+        contactStatus.innerHTML = '<p style="margin:0;">Sending your message...</p>';
       }
 
       if (submitButton) {
@@ -313,7 +314,17 @@
         contactForm.reset();
 
         if (contactStatus) {
-          contactStatus.textContent = result.message || 'Message sent successfully.';
+          contactStatus.innerHTML = [
+            '<div style="padding:1rem 1.1rem;border:1px solid rgba(46, 125, 50, 0.2);border-radius:16px;background:rgba(46, 125, 50, 0.06);color:var(--navy);">',
+            '  <p style="margin:0 0 0.75rem;">',
+            '    Please join the WhatsApp community to stay updated and in touch with us.',
+            '  </p>',
+            '  <a class="btn btn-whatsapp" href="' + whatsappInviteUrl + '" target="_blank" rel="noopener noreferrer">',
+            '    <i class="fab fa-whatsapp" aria-hidden="true"></i>',
+            '    Join WhatsApp',
+            '  </a>',
+            '</div>'
+          ].join('');
         }
       } catch (error) {
         if (contactStatus) {
