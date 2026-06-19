@@ -1018,6 +1018,7 @@ h1, h2, h3, h4, h5, h6 {
   --primary: #6b3e47;
   --primary-light: rgba(107, 62, 71, 0.08);
   --navy: #1a2238;
+  --gold: #d8a15f;
   --gold-dark: #d4a574;
   --muted: #64748b;
   --radius-badge: 100px;
@@ -2078,7 +2079,7 @@ h1,h2,h3,h4,h5,h6,
   transform:translate(-50%,-50%)!important;
   margin:0!important;
   padding:.7rem 1.9rem!important;
-  background:var(--accent)!important;
+  background:var(--gold)!important;
   color:#5d0f2d!important;
   font-weight:700!important;
   border-radius:40px!important;
